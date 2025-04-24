@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background with subtle grid -->
+  <rect width="800" height="450" fill="#ffffff"/>
+  <g stroke="#f0f0f0" stroke-width="1">
+    <!-- Horizontal grid lines -->
+    <line x1="50" y1="50" x2="750" y2="50"/>
+    <line x1="50" y1="100" x2="750" y2="100"/>
+    <line x1="50" y1="150" x2="750" y2="150"/>
+    <line x1="50" y1="200" x2="750" y2="200"/>
+    <line x1="50" y1="250" x2="750" y2="250"/>
+    <line x1="50" y1="300" x2="750" y2="300"/>
+    <line x1="50" y1="350" x2="750" y2="350"/>
+    <line x1="50" y1="400" x2="750" y2="400"/>
+    
+    <!-- Vertical grid lines -->
+    <line x1="100" y1="50" x2="100" y2="400"/>
+    <line x1="200" y1="50" x2="200" y2="400"/>
+    <line x1="300" y1="50" x2="300" y2="400"/>
+    <line x1="400" y1="50" x2="400" y2="400"/>
+    <line x1="500" y1="50" x2="500" y2="400"/>
+    <line x1="600" y1="50" x2="600" y2="400"/>
+    <line x1="700" y1="50" x2="700" y2="400"/>
+  </g>
+  
+  <!-- Axes -->
+  <line x1="50" y1="400" x2="750" y2="400" stroke="#333" stroke-width="2"/>
+  <line x1="50" y1="50" x2="50" y2="400" stroke="#333" stroke-width="2"/>
+  
+  <!-- X-axis labels -->
+  <text x="100" y="420" font-family="Arial" font-size="12" text-anchor="middle">Jan</text>
+  <text x="200" y="420" font-family="Arial" font-size="12" text-anchor="middle">Feb</text>
+  <text x="300" y="420" font-family="Arial" font-size="12" text-anchor="middle">Mar</text>
+  <text x="400" y="420" font-family="Arial" font-size="12" text-anchor="middle">Apr</text>
+  <text x="500" y="420" font-family="Arial" font-size="12" text-anchor="middle">May</text>
+  <text x="600" y="420" font-family="Arial" font-size="12" text-anchor="middle">Jun</text>
+  <text x="700" y="420" font-family="Arial" font-size="12" text-anchor="middle">Jul</text>
+  
+  <!-- Y-axis labels -->
+  <text x="40" y="405" font-family="Arial" font-size="12" text-anchor="end">0</text>
+  <text x="40" y="355" font-family="Arial" font-size="12" text-anchor="end">10</text>
+  <text x="40" y="305" font-family="Arial" font-size="12" text-anchor="end">20</text>
+  <text x="40" y="255" font-family="Arial" font-size="12" text-anchor="end">30</text>
+  <text x="40" y="205" font-family="Arial" font-size="12" text-anchor="end">40</text>
+  <text x="40" y="155" font-family="Arial" font-size="12" text-anchor="end">50</text>
+  <text x="40" y="105" font-family="Arial" font-size="12" text-anchor="end">60</text>
+  <text x="40" y="55" font-family="Arial" font-size="12" text-anchor="end">70</text>
+  
+  <!-- Chart title -->
+  <text x="400" y="30" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle">Monthly Performance Metrics</text>
+  
+  <!-- Data Series 1: Bar Chart -->
+  <g>
+    <rect x="75" y="300" width="50" height="100" fill="#2563eb" opacity="0.7"/>
+    <rect x="175" y="250" width="50" height="150" fill="#2563eb" opacity="0.7"/>
+    <rect x="275" y="200" width="50" height="200" fill="#2563eb" opacity="0.7"/>
+    <rect x="375" y="170" width="50" height="230" fill="#2563eb" opacity="0.7"/>
+    <rect x="475" y="120" width="50" height="280" fill="#2563eb" opacity="0.7"/>
+    <rect x="575" y="100" width="50" height="300" fill="#2563eb" opacity="0.7"/>
+    <rect x="675" y="80" width="50" height="320" fill="#2563eb" opacity="0.7"/>
+  </g>
+  
+  <!-- Data Series 2: Line Chart -->
+  <polyline 
+    points="100,320 200,280 300,230 400,190 500,150 600,120 700,90" 
+    fill="none" 
+    stroke="#ff6b6b" 
+    stroke-width="3"
+  />
+  
+  <!-- Data points for line chart -->
+  <circle cx="100" cy="320" r="5" fill="#ff6b6b"/>
+  <circle cx="200" cy="280" r="5" fill="#ff6b6b"/>
+  <circle cx="300" cy="230" r="5" fill="#ff6b6b"/>
+  <circle cx="400" cy="190" r="5" fill="#ff6b6b"/>
+  <circle cx="500" cy="150" r="5" fill="#ff6b6b"/>
+  <circle cx="600" cy="120" r="5" fill="#ff6b6b"/>
+  <circle cx="700" cy="90" r="5" fill="#ff6b6b"/>
+  
+  <!-- Legend -->
+  <rect x="600" y="30" width="15" height="15" fill="#2563eb" opacity="0.7"/>
+  <text x="625" y="43" font-family="Arial" font-size="12">Revenue</text>
+  
+  <circle cx="607" cy="60" r="5" fill="#ff6b6b"/>
+  <text x="625" y="63" font-family="Arial" font-size="12">Conversion Rate</text>
+  
+  <!-- Data insights overlay moved to top left -->
+  <g opacity="0.9">
+    <rect x="60" y="60" width="200" height="100" rx="5" ry="5" fill="white" stroke="#ddd"/>
+    <text x="80" y="90" font-family="Arial" font-size="14" font-weight="bold">Key Insights:</text>
+    <text x="80" y="115" font-family="Arial" font-size="12">• 42% growth in Q2</text>
+    <text x="80" y="135" font-family="Arial" font-size="12">• Conversion rate up 15%</text>
+  </g>
+  
+  <!-- Removed decorative background circles -->
+</svg>
