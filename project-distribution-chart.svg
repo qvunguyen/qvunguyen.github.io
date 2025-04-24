@@ -1,0 +1,55 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="300" fill="white" rx="8" ry="8"/>
+  
+  <!-- Title -->
+  <text x="200" y="30" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle">Project Distribution by Industry</text>
+  
+  <!-- Main Group for Chart - moved to the left -->
+  <g transform="translate(120, 145)">
+    <!-- Donut segments - Starting from 12 o'clock position and going clockwise -->
+    
+    <!-- E-commerce & Retail (30%) -->
+    <circle r="60" cx="0" cy="0" fill="transparent" stroke="#3b82f6" stroke-width="30" 
+            stroke-dasharray="113 377" stroke-dashoffset="0" />
+    
+    <!-- Finance & Banking (25%) -->
+    <circle r="60" cx="0" cy="0" fill="transparent" stroke="#2563eb" stroke-width="30" 
+            stroke-dasharray="94 396" stroke-dashoffset="-113" />
+    
+    <!-- Healthcare (20%) -->
+    <circle r="60" cx="0" cy="0" fill="transparent" stroke="#1d4ed8" stroke-width="30" 
+            stroke-dasharray="75 415" stroke-dashoffset="-207" />
+    
+    <!-- Manufacturing (15%) -->
+    <circle r="60" cx="0" cy="0" fill="transparent" stroke="#1e40af" stroke-width="30" 
+            stroke-dasharray="56 434" stroke-dashoffset="-282" />
+    
+    <!-- Other (10%) -->
+    <circle r="60" cx="0" cy="0" fill="transparent" stroke="#818cf8" stroke-width="30" 
+            stroke-dasharray="38 452" stroke-dashoffset="-338" />
+  </g>
+  
+  <!-- Legend - repositioned and reformatted for better fit -->
+  <g transform="translate(230, 80)">
+    <!-- E-commerce -->
+    <rect x="0" y="0" width="12" height="12" fill="#3b82f6" />
+    <text x="18" y="10" font-family="Arial, sans-serif" font-size="11" dominant-baseline="middle">E-commerce (30%)</text>
+    
+    <!-- Finance -->
+    <rect x="0" y="25" width="12" height="12" fill="#2563eb" />
+    <text x="18" y="35" font-family="Arial, sans-serif" font-size="11" dominant-baseline="middle">Finance (25%)</text>
+    
+    <!-- Healthcare -->
+    <rect x="0" y="50" width="12" height="12" fill="#1d4ed8" />
+    <text x="18" y="60" font-family="Arial, sans-serif" font-size="11" dominant-baseline="middle">Healthcare (20%)</text>
+    
+    <!-- Manufacturing -->
+    <rect x="0" y="75" width="12" height="12" fill="#1e40af" />
+    <text x="18" y="85" font-family="Arial, sans-serif" font-size="11" dominant-baseline="middle">Manufacturing (15%)</text>
+    
+    <!-- Other -->
+    <rect x="0" y="100" width="12" height="12" fill="#818cf8" />
+    <text x="18" y="110" font-family="Arial, sans-serif" font-size="11" dominant-baseline="middle">Other (10%)</text>
+  </g>
+</svg>

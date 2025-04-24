@@ -1,0 +1,57 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="300" fill="white" rx="8" ry="8"/>
+  
+  <!-- Title -->
+  <text x="200" y="30" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle">Client Success Metrics</text>
+  
+  <!-- Axes -->
+  <line x1="50" y1="250" x2="350" y2="250" stroke="#333" stroke-width="2"/>
+  <line x1="50" y1="250" x2="50" y2="50" stroke="#333" stroke-width="2"/>
+  
+  <!-- Y-axis labels -->
+  <text x="45" y="250" font-family="Arial, sans-serif" font-size="10" text-anchor="end">0%</text>
+  <text x="45" y="210" font-family="Arial, sans-serif" font-size="10" text-anchor="end">20%</text>
+  <text x="45" y="170" font-family="Arial, sans-serif" font-size="10" text-anchor="end">40%</text>
+  <text x="45" y="130" font-family="Arial, sans-serif" font-size="10" text-anchor="end">60%</text>
+  <text x="45" y="90" font-family="Arial, sans-serif" font-size="10" text-anchor="end">80%</text>
+  <text x="45" y="50" font-family="Arial, sans-serif" font-size="10" text-anchor="end">100%</text>
+  
+  <!-- Horizontal grid lines -->
+  <line x1="50" y1="210" x2="350" y2="210" stroke="#ddd" stroke-width="1"/>
+  <line x1="50" y1="170" x2="350" y2="170" stroke="#ddd" stroke-width="1"/>
+  <line x1="50" y1="130" x2="350" y2="130" stroke="#ddd" stroke-width="1"/>
+  <line x1="50" y1="90" x2="350" y2="90" stroke="#ddd" stroke-width="1"/>
+  <line x1="50" y1="50" x2="350" y2="50" stroke="#ddd" stroke-width="1"/>
+  
+  <!-- Bars -->
+  <!-- Revenue Growth -->
+  <rect x="70" y="130" width="40" height="120" fill="#2563eb"/>
+  <text x="90" y="270" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">Revenue</text>
+  <text x="90" y="282" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">Growth</text>
+  <text x="90" y="125" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#fff" font-weight="bold">60%</text>
+  
+  <!-- Cost Reduction -->
+  <rect x="130" y="170" width="40" height="80" fill="#2563eb"/>
+  <text x="150" y="270" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">Cost</text>
+  <text x="150" y="282" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">Reduction</text>
+  <text x="150" y="165" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#fff" font-weight="bold">40%</text>
+  
+  <!-- Efficiency Gain -->
+  <rect x="190" y="90" width="40" height="160" fill="#2563eb"/>
+  <text x="210" y="270" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">Efficiency</text>
+  <text x="210" y="282" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">Gain</text>
+  <text x="210" y="85" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#fff" font-weight="bold">80%</text>
+  
+  <!-- Decision Speed -->
+  <rect x="250" y="110" width="40" height="140" fill="#2563eb"/>
+  <text x="270" y="270" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">Decision</text>
+  <text x="270" y="282" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">Speed</text>
+  <text x="270" y="105" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#fff" font-weight="bold">70%</text>
+  
+  <!-- Customer Satisfaction -->
+  <rect x="310" y="70" width="40" height="180" fill="#2563eb"/>
+  <text x="330" y="270" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">Customer</text>
+  <text x="330" y="282" font-family="Arial, sans-serif" font-size="10" text-anchor="middle">Satisfaction</text>
+  <text x="330" y="65" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#fff" font-weight="bold">90%</text>
+</svg>
