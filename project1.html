@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Victoria Burglary Analysis | JN Data Analytics</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #2563eb;
+            transition: color 0.3s;
+        }
+        
+        a:hover {
+            color: #1d4ed8;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Typography */
+        h1, h2, h3, h4, h5 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+        }
+        
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+            color: white;
+        }
+        
+        .btn-secondary {
+            background-color: #e5e7eb;
+            color: #333;
+            border: none;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #d1d5db;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-circle {
+            width: 40px;
+            height: 40px;
+            background-color: #2563eb;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .logo-text {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover, .nav-links a.active {
+            color: #2563eb;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #333;
+        }
+        
+        /* Project Detail Styles */
+        .project-header {
+            padding: 150px 0 60px;
+            background-color: white;
+        }
+        
+        .breadcrumbs {
+            margin-bottom: 20px;
+            color: #6b7280;
+            font-size: 14px;
+        }
+        
+        .project-meta {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #6b7280;
+        }
+        
+        .meta-icon {
+            color: #2563eb;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .tag {
+            background-color: #dbeafe;
+            color: #1e40af;
+            font-size: 14px;
+            padding: 5px 12px;
+            border-radius: 20px;
+        }
+        
+        .project-content {
+            padding: 60px 0;
+        }
+        
+        .project-image {
+            width: 100%;
+            height: 400px;
+            background-color: #e5e7eb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #9ca3af;
+            font-size: 20px;
+            margin-bottom: 40px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .project-section {
+            margin-bottom: 50px;
+        }
+        
+        .project-section p {
+            color: #4b5563;
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .result-card {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .result-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .result-number {
+            font-size: 36px;
+            font-weight: bold;
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+        
+        .result-label {
+            color: #6b7280;
+        }
+        
+        .chart-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            margin: 30px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .dashboard-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            margin: 30px 0;
+            overflow: hidden;
+        }
+        
+        .dashboard-container iframe {
+            width: 100%;
+            border: none;
+        }
+        
+        .methodology-steps {
+            counter-reset: step;
+            margin: 30px 0;
+        }
+        
+        .step {
+            position: relative;
+            padding-left: 50px;
+            margin-bottom: 30px;
+        }
+        
+        .step::before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 36px;
+            height: 36px;
+            background-color: #2563eb;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+        
+        .step h4 {
+            margin-bottom: 10px;
+        }
+        
+        .next-prev {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid #e5e7eb;
+        }
+        
+        .next-prev a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .next-prev-arrow {
+            font-size: 20px;
+        }
+        
+        /* Call to Action */
+        .cta {
+            background-color: #f3f4f6;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            margin-bottom: 20px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1f2937;
+            color: white;
+            padding: 40px 0;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-logo-circle {
+            width: 30px;
+            height: 30px;
+            background-color: #2563eb;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        .footer-nav {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .footer-nav a {
+            color: #9ca3af;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-nav a:hover {
+            color: white;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .footer-social a {
+            color: #9ca3af;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-social a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #374151;
+            color: #9ca3af;
+            font-size: 14px;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+            
+            .footer-logo {
+                justify-content: center;
+            }
+            
+            .next-prev {
+                flex-direction: column;
+                gap: 20px;
+                align-items: center;
+            }
+            
+            .dashboard-container iframe {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <div class="logo-circle">JN</div>
+                    <div class="logo-text">JN Data Analytics</div>
+                </div>
+                
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="index.html#about">About</a>
+                    <a href="index.html#services">Services</a>
+                    <a href="projects.html" class="active">Portfolio</a>
+                    <a href="index.html#testimonials">Testimonials</a>
+                    <a href="index.html#contact">Contact</a>
+                </div>
+                
+                <button class="mobile-menu-btn">☰</button>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Project Header -->
+    <section class="project-header">
+        <div class="container">
+            <div class="breadcrumbs">
+                <a href="index.html">Home</a> > <a href="projects.html">Projects</a> > Victoria Burglary Analysis
+            </div>
+            
+            <h1>Victoria's Burglary Crisis: The 24.8% Surge in 2024</h1>
+            
+            <div class="project-meta">
+                <div class="meta-item">
+                    <span class="meta-icon">📅</span>
+                    <span>Completed: April 2025</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-icon">👤</span>
+                    <span>Client: Victoria Police Department</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-icon">⏱️</span>
+                    <span>Duration: 12 weeks</span>
+                </div>
+            </div>
+            
+            <div class="project-tags">
+                <span class="tag">Crime Analysis</span>
+                <span class="tag">Power BI</span>
+                <span class="tag">Geospatial Analysis</span>
+                <span class="tag">Data Visualization</span>
+                <span class="tag">Public Safety</span>
+            </div>
+            
+            <p>A comprehensive analysis of Victoria's burglary data from 2015-2024, revealing alarming trends, geographic hotspots, and justice system challenges in addressing the 24.8% surge in burglary incidents.</p>
+        </div>
+    </section>
+    
+    <!-- Project Content -->
+    <section class="project-content">
+        <div class="container">
+            <!-- Power BI Dashboard -->
+            <div class="dashboard-container">
+                <iframe title="home_invasion_analysis_victoria_2025" width="800" height="636" src="https://app.powerbi.com/view?r=eyJrIjoiZjc2MzE4MWYtNDAwZi00NDA4LTk4OGEtMmMxY2YwMGMzZTEzIiwidCI6IjY5NmUzYTFiLWEyOTgtNGYwYS04NThkLTg3NzhhNWRmODI3NCJ9&pageName=95ff35686a60a4e96ed8" frameborder="0" allowFullScreen="true"></iframe>
+            </div>
+            
+            <div class="project-section">
+                <h2>Project Overview</h2>
+                <p>This comprehensive analysis examines Victoria's burglary crisis, revealing an alarming 24.8% surge in 2024. Using data spanning from 2015 to 2024, this project identifies key trends, geographic hotspots, and investigative challenges facing law enforcement agencies across Victoria, Australia.</p>
+                <p>As the lead data analyst on this project, I conducted a multi-dimensional analysis of burglary data to provide actionable insights for policymakers, law enforcement agencies, and community safety programs.</p>
+            </div>
+            
+            <div class="project-section">
+                <h2>The Challenge</h2>
+                <p>The analysis needed to address several critical questions:</p>
+                <ul style="margin-left: 25px; margin-bottom: 20px;">
+                    <li>What is the true scale of Victoria's burglary problem?</li>
+                    <li>Which areas face the highest risk, and what factors contribute to these patterns?</li>
+                    <li>How effective are current law enforcement efforts in solving burglary cases?</li>
+                    <li>What is the nature of burglary threats, particularly regarding violence or threats?</li>
+                    <li>How can data-driven insights inform more effective prevention and response strategies?</li>
+                </ul>
+                <p>The project required integrating and analyzing large datasets from multiple sources, including crime reports, geographical information, and case resolution statistics.</p>
+            </div>
+            
+            <div class="project-section">
+                <h2>Key Findings</h2>
+                
+                <h3>The Alarming Reality</h3>
+                <p>Victoria is facing an unprecedented crisis in home security. Our analysis uncovered a staggering <strong>416,882 burglary incidents</strong> across the state, with numbers climbing rapidly. In 2024 alone, burglary rates surged by <strong>24.8%</strong> — the sharpest increase in over a decade. This translates to nearly <strong>147 offenses per 100,000 residents</strong>, meaning that in some neighborhoods, almost 1 in 700 homes experiences a break-in each year.</p>
+                
+                <p>What makes this trend particularly concerning is that <strong>it reverses years of progress</strong>. Between 2015 and 2022, Victoria had been winning the battle against property crime, with burglary rates steadily declining. That positive trajectory hit a turning point in 2022, after which we've witnessed an alarming upward swing that shows no signs of slowing down. The data reveals a <strong>31.4% increase in incidents since that turning point</strong>, effectively erasing seven years of security improvements in just two years.</p>
+                
+                <h3>The Geography of Risk: Not All Areas Are Equal</h3>
+                <p>Our geospatial analysis reveals a striking disparity in risk across Victoria. While <strong>Melbourne records the highest absolute number of burglaries with over 19,500 cases</strong>, it's actually the smaller region of <strong>Loddon that faces the greatest relative threat</strong>. Residents there experience an extraordinary <strong>266.36 cases per 100,000 people</strong> — making it Victoria's true burglary capital.</p>
+                
+                <p>The analysis identified <strong>five critical hotspots</strong> where prevention efforts should be concentrated: <strong>Loddon, Yarra, Melbourne, Latrobe, and Queenscliffe</strong>. Each of these areas exceeds 230 incidents per 100,000 residents, more than 1.5 times the state average. Particularly concerning is how these hotspots form a pattern that cuts across both urban and rural divides, suggesting that traditional explanations for property crime may need reassessment.</p>
+                
+                <h3>The Human Impact: When Burglary Turns Violent</h3>
+                <p>Perhaps most troubling is what our analysis reveals about the changing nature of burglaries in Victoria. These aren't just property crimes — they increasingly put people at direct risk. Our data shows that <strong>10.9% of all burglaries now involve aggravated circumstances with violence or threats</strong>. This means that <strong>approximately 1 in 10 break-ins includes a confrontation</strong> that puts residents in physical danger.</p>
+                
+                <p><strong>Homes are overwhelmingly the preferred target, accounting for 66.9% of all incidents</strong>. The remaining cases primarily target businesses and commercial properties (32.8%). This residential focus means that Victoria's burglary crisis is directly impacting families where they should feel safest — in their own homes. <strong>The psychological impact of such violations extends far beyond the material losses</strong>, creating lasting trauma for victims and undermining community trust.</p>
+                
+                <h3>The Justice Gap: A Crisis of Accountability</h3>
+                <p>Our most concerning discovery is what happens after these crimes occur. Of the 416,882 burglaries recorded, <strong>only 23.15% have been resolved</strong> with an offender identified and charged. This means that <strong>more than three-quarters of all cases (76.85%) remain unsolved</strong>, creating a significant accountability gap in the justice system.</p>
+                
+                <p>Law enforcement appears to prioritize violent incidents, with <strong>aggravated burglaries being twice as likely to be solved</strong> compared to non-aggravated cases. While this prioritization makes sense given limited resources, it still leaves thousands of victims without resolution. Even more troubling, our trend analysis shows that <strong>clearance rates peaked in 2022 and have been declining since</strong> — precisely when incident numbers began to surge. This widening gap between crime rates and resolution rates suggests a system increasingly unable to keep pace with the growing challenge.</p>
+            </div>
+            
+            <div class="project-section">
+                <h2>The Justice Gap</h2>
+                
+                <p>The sobering reality of Victoria's burglary crisis extends beyond the rising incident numbers to a fundamental challenge in our justice system. Our analysis reveals that of the <strong>416,882 burglaries recorded, only 23.15% have been resolved</strong> with an offender identified and charged. This means that <strong>more than 320,000 cases — representing over three-quarters of all reported burglaries — remain unsolved</strong>.</p>
+                
+                <p>This accountability gap creates a cascading effect throughout communities. <strong>Victims are left without closure</strong>, neighborhoods develop a sense of insecurity, and potential offenders may perceive a reduced risk of consequences. The data shows that law enforcement necessarily prioritizes the most serious cases, with <strong>aggravated burglaries being twice as likely to be solved</strong> compared to non-aggravated incidents.</p>
+                
+                <p>Perhaps most concerning is the trend we've identified: <strong>clearance rates peaked in 2022 at approximately 26%, coinciding with the lowest point in burglary incidents</strong>. Since then, as cases have surged, the clearance rate has declined to 23.15%. This <strong>inverse relationship between case volume and resolution rate</strong> suggests a system under increasing strain, with resources unable to expand at the pace needed to address the growing challenge.</p>
+                
+                <p>Without addressing this justice gap, any prevention efforts may struggle to achieve lasting impact. Our data indicates that <strong>improving investigative capacity and case management systems</strong> would be critical components of a comprehensive response to Victoria's burglary crisis.</p>
+            </div>
+            
+            <div class="project-section">
+                <h2>Methodology</h2>
+                <p>I approached this project using a comprehensive data analysis framework:</p>
+                
+                <div class="methodology-steps">
+                    <div class="step">
+                        <h4>Data Collection & Integration</h4>
+                        <p>Gathered crime data from Victoria Police records, Local Government Area statistics, and historical crime trends spanning 2015-2024. Integrated population data to enable per capita analysis.</p>
+                    </div>
+                    
+                    <div class="step">
+                        <h4>Data Cleaning & Validation</h4>
+                        <p>Performed extensive data validation to ensure accuracy and consistency across datasets. Standardized geographic boundaries and verified case classification methodologies.</p>
+                    </div>
+                    
+                    <div class="step">
+                        <h4>Statistical Analysis</h4>
+                        <p>Applied time series analysis to identify trends, seasonal patterns, and anomalies in burglary data. Calculated key metrics including per capita rates, clearance percentages, and year-over-year changes.</p>
+                    </div>
+                    
+                    <div class="step">
+                        <h4>Geospatial Analysis</h4>
+                        <p>Mapped burglary incidents across Victoria to identify hotspots and risk patterns. Analyzed regional differences to understand geographic distribution and local risk factors.</p>
+                    </div>
+                    
+                    <div class="step">
+                        <h4>Interactive Visualization</h4>
+                        <p>Developed comprehensive Power BI dashboards to visualize findings, enabling stakeholders to explore data from multiple perspectives and drill down into specific areas of concern.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-section">
+                <h2>Implications & Recommendations</h2>
+                <p>Based on the analysis, I developed several key recommendations:</p>
+                <ul style="margin-left: 25px; margin-bottom: 20px;">
+                    <li><strong>Targeted Resource Allocation:</strong> Focus additional policing resources in the top five high-risk areas, particularly Loddon where per capita rates are highest.</li>
+                    <li><strong>Improved Investigative Capacity:</strong> Address the declining clearance rate by strengthening investigative capabilities and case management systems.</li>
+                    <li><strong>Risk Assessment Framework:</strong> Develop a data-driven risk assessment model to identify vulnerable residential areas for targeted prevention programs.</li>
+                    <li><strong>Community Education:</strong> Implement public awareness campaigns focusing on home security in high-risk areas, using local risk data to drive engagement.</li>
+                    <li><strong>Continuous Monitoring:</strong> Establish an ongoing monitoring system to track intervention effectiveness and adjust strategies accordingly.</li>
+                </ul>
+                <p>This analysis provides critical insights for policymakers, law enforcement, and community safety organizations to address Victoria's growing burglary crisis through data-driven decision making.</p>
+            </div>
+            
+            <div class="project-section">
+                <h2>Tools & Technologies Used</h2>
+                <ul style="margin-left: 25px; margin-bottom: 20px;">
+                    <li><strong>Power BI:</strong> For interactive dashboard development and data visualization</li>
+                    <li><strong>SQL:</strong> For data extraction and integration from multiple databases</li>
+                    <li><strong>Python:</strong> For statistical analysis and data cleaning</li>
+                    <li><strong>ArcGIS:</strong> For geospatial analysis and hotspot mapping</li>
+                    <li><strong>Statistical methods:</strong> Time series analysis, correlation analysis, geospatial statistics</li>
+                </ul>
+            </div>
+            
+            <div class="next-prev">
+                <a href="project3.html" class="prev-project">
+                    <span class="next-prev-arrow">←</span>
+                    <span>Previous Project: Financial Dashboard</span>
+                </a>
+                <a href="project2.html" class="next-project">
+                    <span>Next Project: Customer Segmentation</span>
+                    <span class="next-prev-arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Call to Action -->
+    <section class="cta">
+        <div class="container">
+            <h2>Need Data-Driven Crime Analysis for Your Region?</h2>
+            <p>I can help transform complex crime data into actionable insights that improve public safety and resource allocation.</p>
+            <a href="index.html#contact" class="btn btn-primary">Let's Talk</a>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="footer-logo-circle">JN</div>
+                    <span>JN Data Analytics</span>
+                </div>
+                
+                <div class="footer-nav">
+                    <a href="index.html">Home</a>
+                    <a href="index.html#about">About</a>
+                    <a href="index.html#services">Services</a>
+                    <a href="projects.html">Portfolio</a>
+                    <a href="index.html#testimonials">Testimonials</a>
+                    <a href="index.html#contact">Contact</a>
+                </div>
+                
+                <div class="footer-social">
+                    <a href="#">✉️</a>
+                    <a href="#">in</a>
+                    <a href="#">&lt;/&gt;</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Your Name. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple JavaScript for mobile menu
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+            
+            menuBtn.addEventListener('click', function() {
+                navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            });
+        });
+    </script>
+</body>
+</html>
