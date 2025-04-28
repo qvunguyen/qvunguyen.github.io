@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon | JN Data Analytics</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #2563eb;
+            transition: color 0.3s;
+        }
+        
+        a:hover {
+            color: #1d4ed8;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Typography */
+        h1, h2, h3, h4, h5 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+        }
+        
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+            color: white;
+        }
+        
+        .btn-secondary {
+            background-color: #e5e7eb;
+            color: #333;
+            border: none;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #d1d5db;
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: #2563eb;
+            border: 2px solid #2563eb;
+        }
+        
+        .btn-outline:hover {
+            background-color: #2563eb;
+            color: white;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-circle {
+            width: 40px;
+            height: 40px;
+            background-color: #2563eb;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .logo-text {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover, .nav-links a.active {
+            color: #2563eb;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #333;
+        }
+        
+        /* Coming Soon Styles */
+        .coming-soon {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 140px 0 60px;
+        }
+        
+        .coming-soon-content {
+            text-align: center;
+            max-width: 800px;
+        }
+        
+        .coming-soon-title {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .coming-soon-text {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 2.5rem;
+        }
+        
+        .coming-soon-illustration {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto 3rem;
+        }
+        
+        .coming-soon-illustration svg {
+            width: 100%;
+            height: auto;
+            max-height: 300px;
+        }
+        
+        .coming-soon-countdown {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 3rem;
+        }
+        
+        .countdown-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .countdown-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #2563eb;
+            margin-bottom: 0.5rem;
+            width: 70px;
+            height: 70px;
+            background-color: white;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .countdown-label {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+        
+        .coming-soon-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .notify-form {
+            margin-top: 3rem;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .form-title {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group.inline {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .form-group.inline input {
+            flex: 1;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 16px;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 2rem;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #f3f4f6;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #2563eb;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background-color: #2563eb;
+            color: white;
+        }
+        
+        /* Progress Bar */
+        .progress-container {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto 2rem;
+            text-align: left;
+        }
+        
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background-color: #e5e7eb;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background-color: #2563eb;
+            border-radius: 4px;
+            width: 75%;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1f2937;
+            color: white;
+            padding: 40px 0;
+            margin-top: auto;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-logo-circle {
+            width: 30px;
+            height: 30px;
+            background-color: #2563eb;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        .footer-nav {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .footer-nav a {
+            color: #9ca3af;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-nav a:hover {
+            color: white;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .footer-social a {
+            color: #9ca3af;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-social a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #374151;
+            color: #9ca3af;
+            font-size: 14px;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background-color: white;
+                flex-direction: column;
+                gap: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.5s ease;
+                width: 100%;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                max-height: 300px;
+            }
+            
+            .nav-links a {
+                display: block;
+                padding: 15px 20px;
+                border-bottom: 1px solid #eee;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .coming-soon-title {
+                font-size: 2.5rem;
+            }
+            
+            .coming-soon-countdown {
+                gap: 15px;
+            }
+            
+            .countdown-number {
+                width: 60px;
+                height: 60px;
+                font-size: 2rem;
+            }
+            
+            .coming-soon-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+            
+            .footer-logo {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <div class="logo-circle">JN</div>
+                    <div class="logo-text">JN Data Analytics</div>
+                </div>
+                
+                <div class="nav-links" id="navLinks">
+                    <a href="index.html">Home</a>
+                    <a href="index.html#about">About</a>
+                    <a href="index.html#services">Services</a>
+                    <a href="index.html#portfolio">Portfolio</a>
+                    <a href="index.html#testimonials">Testimonials</a>
+                    <a href="index.html#contact">Contact</a>
+                </div>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Coming Soon Section -->
+    <section class="coming-soon">
+        <div class="container">
+            <div class="coming-soon-content">
+                <div class="coming-soon-illustration">
+                    <svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#e0e7ff;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#dbeafe;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <!-- Background -->
+                        <rect x="50" y="50" width="500" height="200" rx="10" fill="url(#bgGradient)" />
+                        
+                        <!-- Dashboard elements -->
+                        <rect x="80" y="80" width="200" height="140" rx="6" fill="#ffffff" />
+                        <rect x="90" y="100" width="180" height="10" rx="2" fill="#2563eb" opacity="0.7" />
+                        <rect x="90" y="120" width="140" height="10" rx="2" fill="#2563eb" opacity="0.5" />
+                        <rect x="90" y="140" width="160" height="10" rx="2" fill="#2563eb" opacity="0.6" />
+                        <rect x="90" y="160" width="120" height="10" rx="2" fill="#2563eb" opacity="0.4" />
+                        <rect x="90" y="180" width="170" height="10" rx="2" fill="#2563eb" opacity="0.5" />
+                        
+                        <!-- Chart -->
+                        <rect x="300" y="80" width="230" height="140" rx="6" fill="#ffffff" />
+                        <circle cx="330" cy="150" r="50" fill="none" stroke="#2563eb" stroke-width="25" stroke-dasharray="251.2 314" transform="rotate(-90 330 150)" />
+                        <circle cx="330" cy="150" r="50" fill="none" stroke="#4b72e8" stroke-width="25" stroke-dasharray="62.8 314" stroke-dashoffset="-251.2" transform="rotate(-90 330 150)" />
+                        
+                        <!-- Graph -->
+                        <polyline points="350,170 380,140 410,150 440,120 470,100 500,110" fill="none" stroke="#2563eb" stroke-width="3" />
+                        <circle cx="350" cy="170" r="4" fill="#2563eb" />
+                        <circle cx="380" cy="140" r="4" fill="#2563eb" />
+                        <circle cx="410" cy="150" r="4" fill="#2563eb" />
+                        <circle cx="440" cy="120" r="4" fill="#2563eb" />
+                        <circle cx="470" cy="100" r="4" fill="#2563eb" />
+                        <circle cx="500" cy="110" r="4" fill="#2563eb" />
+                        
+                        <!-- Decorative elements -->
+                        <circle cx="100" cy="70" r="10" fill="#2563eb" opacity="0.2" />
+                        <circle cx="530" cy="230" r="15" fill="#2563eb" opacity="0.2" />
+                        <circle cx="480" cy="50" r="8" fill="#2563eb" opacity="0.2" />
+                        <circle cx="70" cy="200" r="12" fill="#2563eb" opacity="0.2" />
+                        
+                        <!-- Text "Coming Soon" -->
+                        <text x="300" y="240" font-family="Arial" font-size="16" font-weight="bold" fill="#2563eb" text-anchor="middle">PROJECT UNDER DEVELOPMENT</text>
+                    </svg>
+                </div>
+                
+                <h1 class="coming-soon-title">Project Details Coming Soon</h1>
+                <p class="coming-soon-text">We're currently building this project page to showcase our comprehensive data analysis work. Check back soon to explore our detailed methodology, key findings, and interactive visualizations.</p>
+                
+                <div class="progress-container">
+                    <div class="progress-label">
+                        <span>Project Development</span>
+                        <span>75%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress"></div>
+                    </div>
+                </div>
+                
+                <div class="coming-soon-countdown">
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="days">14</div>
+                        <div class="countdown-label">Days</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="hours">23</div>
+                        <div class="countdown-label">Hours</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="minutes">59</div>
+                        <div class="countdown-label">Minutes</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="seconds">42</div>
+                        <div class="countdown-label">Seconds</div>
+                    </div>
+                </div>
+                
+                <div class="coming-soon-buttons">
+                    <a href="project1.html" class="btn btn-primary">View Available Case Study</a>
+                    <a href="index.html#portfolio" class="btn btn-secondary">Return to Portfolio</a>
+                </div>
+                
+                <!-- <div class="notify-form">
+                    <h3 class="form-title">Get Notified When This Project Launches</h3>
+                    <form action="#" method="POST">
+                        <div class="form-group inline">
+                            <input type="email" id="email" placeholder="Enter your email" required>
+                            <button type="submit" class="btn btn-primary">Notify Me</button>
+                        </div>
+                    </form>
+                </div> -->
+                
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/jason-nguyen-7105231a5/" class="social-icon">
+                        in
+                    </a>
+                    <a href="https://github.com/qvunguyen" class="social-icon">
+                        &lt;/&gt;
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="footer-logo-circle">JN</div>
+                    <span>JN Data Analytics</span>
+                </div>
+                
+                <div class="footer-nav">
+                    <a href="index.html">Home</a>
+                    <a href="index.html#about">About</a>
+                    <a href="index.html#services">Services</a>
+                    <a href="index.html#portfolio">Portfolio</a>
+                    <a href="index.html#testimonials">Testimonials</a>
+                    <a href="index.html#contact">Contact</a>
+                </div>
+                
+                <div class="footer-social">
+                    <a href="#">✉️</a>
+                    <a href="https://www.linkedin.com/in/jason-nguyen-7105231a5/">in</a>
+                    <a href="https://github.com/qvunguyen">&lt;/&gt;</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 JN Data Analytics. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const menuBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('navLinks');
+            
+            menuBtn.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                this.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+            });
+            
+            // Countdown timer
+            const countdownDate = new Date();
+            countdownDate.setDate(countdownDate.getDate() + 14); // Set to 14 days from now
+            
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const distance = countdownDate - now;
+                
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                document.getElementById('days').textContent = days;
+                document.getElementById('hours').textContent = hours;
+                document.getElementById('minutes').textContent = minutes;
+                document.getElementById('seconds').textContent = seconds;
+                
+                if (distance < 0) {
+                    clearInterval(x);
+                    document.getElementById('days').textContent = '0';
+                    document.getElementById('hours').textContent = '0';
+                    document.getElementById('minutes').textContent = '0';
+                    document.getElementById('seconds').textContent = '0';
+                }
+            }
+            
+            updateCountdown(); // Initial call
+            const x = setInterval(updateCountdown, 1000);
+        });
+    </script>
+</body>
+</html>
