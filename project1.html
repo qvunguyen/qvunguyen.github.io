@@ -337,6 +337,121 @@
         .next-prev-arrow {
             font-size: 20px;
         }
+
+        /* New Diagnostic Analysis Styles */
+        .diagnostic-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 0;
+            margin: 60px 0;
+            border-radius: 16px;
+        }
+        
+        .diagnostic-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .diagnostic-badge {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        
+        .diagnostic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .diagnostic-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            border-radius: 12px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        
+        .diagnostic-card:hover {
+            transform: translateY(-5px);
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+        
+        .diagnostic-card h4 {
+            color: #fbbf24;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .diagnostic-card p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+        }
+        
+        .insight-highlight {
+            background-color: rgba(251, 191, 36, 0.2);
+            border-left: 4px solid #fbbf24;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        
+        .insight-highlight h4 {
+            color: #fbbf24;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-visual {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 12px;
+            margin: 30px 0;
+        }
+        
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+        }
+        
+        .timeline-year {
+            background-color: #fbbf24;
+            color: #1f2937;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-right: 20px;
+            min-width: 80px;
+            text-align: center;
+        }
+        
+        .next-prev {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid #e5e7eb;
+        }
+        
+        .next-prev a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .next-prev-arrow {
+            font-size: 20px;
+        }
         
         /* Call to Action */
         .cta {
@@ -564,18 +679,83 @@
                 
                 <p>Law enforcement appears to prioritize violent incidents, with <strong>aggravated burglaries being twice as likely to be solved</strong> compared to non-aggravated cases. While this prioritization makes sense given limited resources, it still leaves thousands of victims without resolution. Even more troubling, our trend analysis shows that <strong>clearance rates peaked in 2022 and have been declining since</strong> — precisely when incident numbers began to surge. This widening gap between crime rates and resolution rates suggests a system increasingly unable to keep pace with the growing challenge.</p>
             </div>
+
+            <!-- NEW: Diagnostic Analysis Section -->
+            <section class="diagnostic-section">
+                <div class="container">
+                    <div class="diagnostic-header">
+                        <div class="diagnostic-badge">🔍 ADVANCED ANALYSIS</div>
+                        <h2>Diagnostic Analysis: Understanding the WHY Behind the Crisis</h2>
+                        <p>Moving beyond descriptive statistics to uncover the root causes driving Victoria's burglary surge</p>
+                    </div>
+                    
+                    <div class="insight-highlight">
+                        <h4>🎯 Key Discovery</h4>
+                        <p>The 2022 turning point aligns precisely with Victoria's emergence from the world's longest COVID-19 lockdowns, creating a "perfect storm" of social disruption, youth behavioral changes, and justice system strain.</p>
+                    </div>
+                    
+                    <div class="timeline-visual">
+                        <h3 style="color: #fbbf24; margin-bottom: 25px;">Timeline of Critical Events</h3>
+                        <div class="timeline-item">
+                            <div class="timeline-year">2020-2022</div>
+                            <div>
+                                <strong>Extended Lockdowns:</strong> Victoria experiences some of the world's longest COVID-19 restrictions, with virtual learning dominating education and severe social isolation affecting youth mental health.
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">Late 2022</div>
+                            <div>
+                                <strong>Restriction Lifting:</strong> Social distancing measures fully removed, coinciding with the exact inflection point shown in burglary data where trends reverse from declining to rapidly increasing.
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">2023-2024</div>
+                            <div>
+                                <strong>Youth Crime Explosion:</strong> Teenage offenses reach highest levels since 2009, with repeat offender rates spiking and social media-driven criminal behavior emerging.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="diagnostic-grid">
+                        <div class="diagnostic-card">
+                            <h4>📊 Demographic Driver Analysis</h4>
+                            <p><strong>Youth Crime Surge:</strong> Ages 10-17 account for 25% of aggravated burglary offenders despite being only 10% of total offenders. The worst 20 repeat offenders committed 302 aggravated burglaries alone—nearly 20% of all such crimes in Melbourne.</p>
+                        </div>
+                        
+                        <div class="diagnostic-card">
+                            <h4>🌍 Geographic Risk Factors</h4>
+                            <p><strong>Rural Vulnerability:</strong> Loddon's extreme rate (266 per 100,000) stems from low population density (1.16 persons/km²), limited police resources, social isolation, and economic stress factors affecting regional communities.</p>
+                        </div>
+                        
+                        <div class="diagnostic-card">
+                            <h4>⚖️ Justice System Breakdown</h4>
+                            <p><strong>Resource Overwhelm:</strong> Clearance rates declined from 26% (2022) to 23% (2024) as incidents surged. Police made 3,400 arrests but faced a "revolving door" effect with 330 hardened young offenders arrested 3+ times each.</p>
+                        </div>
+                        
+                        <div class="diagnostic-card">
+                            <h4>🧠 Behavioral Pattern Shifts</h4>
+                            <p><strong>Social Media Motivation:</strong> Much youth crime is now "driven by the pursuit of notoriety or social media likes," representing a fundamental shift from traditional economic motivations to attention-seeking behavior.</p>
+                        </div>
+                        
+                        <div class="diagnostic-card">
+                            <h4>💡 Technology Amplifier</h4>
+                            <p><strong>Electronic Theft Tools:</strong> One in five vehicle thefts now use electronic devices that can program or mimic keys, enabling rapid escalation from burglary to car theft and increasing confrontation risks.</p>
+                        </div>
+                        
+                        <div class="diagnostic-card">
+                            <h4>📈 Predictive Risk Model</h4>
+                            <p><strong>High-Risk Indicators:</strong> Combination of regional location + low population density + high youth population + post-COVID social adjustment challenges + limited economic opportunities creates predictable hotspot patterns.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="insight-highlight">
+                        <h4>🔮 Strategic Implications</h4>
+                        <p>This diagnostic analysis transforms reactive crime reporting into proactive risk prediction. By understanding that the crisis stems from post-pandemic social disruption rather than traditional crime factors, intervention strategies can target root causes: youth engagement programs, mental health support, technology crime prevention, and geographically-informed resource allocation.</p>
+                    </div>
+                </div>
+            </section>
             
-            <!-- <div class="project-section">
-                <h2>The Justice Gap</h2>
-                
-                <p>The sobering reality of Victoria's burglary crisis extends beyond the rising incident numbers to a fundamental challenge in our justice system. Our analysis reveals that of the <strong>416,882 burglaries recorded, only 23.15% have been resolved</strong> with an offender identified and charged. This means that <strong>more than 320,000 cases — representing over three-quarters of all reported burglaries — remain unsolved</strong>.</p>
-                
-                <p>This accountability gap creates a cascading effect throughout communities. <strong>Victims are left without closure</strong>, neighborhoods develop a sense of insecurity, and potential offenders may perceive a reduced risk of consequences. The data shows that law enforcement necessarily prioritizes the most serious cases, with <strong>aggravated burglaries being twice as likely to be solved</strong> compared to non-aggravated incidents.</p>
-                
-                <p>Perhaps most concerning is the trend we've identified: <strong>clearance rates peaked in 2022 at approximately 26%, coinciding with the lowest point in burglary incidents</strong>. Since then, as cases have surged, the clearance rate has declined to 23.15%. This <strong>inverse relationship between case volume and resolution rate</strong> suggests a system under increasing strain, with resources unable to expand at the pace needed to address the growing challenge.</p>
-                
-                <p>Without addressing this justice gap, any prevention efforts may struggle to achieve lasting impact. Our data indicates that <strong>improving investigative capacity and case management systems</strong> would be critical components of a comprehensive response to Victoria's burglary crisis.</p>
-            </div> -->
+
             
             <div class="project-section">
                 <h2>Methodology</h2>
