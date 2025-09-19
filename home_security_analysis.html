@@ -3,616 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive analysis of Victoria's burglary crisis, revealing a 24.8% surge in 2024 with geographic hotspots and justice system challenges.">
+    <meta name="keywords" content="Victoria burglary analysis, crime data, Power BI dashboard, geospatial analysis, public safety">
+    <meta name="author" content="JN Data Analytics">
     <title>Victoria Burglary Analysis | JN Data Analytics</title>
-    <style>
-        /* Reset and Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f9f9f9;
-        }
-        
-        a {
-            text-decoration: none;
-            color: #2563eb;
-            transition: color 0.3s;
-        }
-        
-        a:hover {
-            color: #1d4ed8;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Typography */
-        h1, h2, h3, h4, h5 {
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 1rem;
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-        }
-        
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        h3 {
-            font-size: 1.5rem;
-            margin-top: 2rem;
-        }
-        
-        p {
-            margin-bottom: 1rem;
-        }
-        
-        /* Buttons */
-        .btn {
-            display: inline-block;
-            padding: 12px 24px;
-            border-radius: 6px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-primary {
-            background-color: #2563eb;
-            color: white;
-            border: none;
-        }
-        
-        .btn-primary:hover {
-            background-color: #1d4ed8;
-            color: white;
-        }
-        
-        .btn-secondary {
-            background-color: #e5e7eb;
-            color: #333;
-            border: none;
-        }
-        
-        .btn-secondary:hover {
-            background-color: #d1d5db;
-        }
-
-        /* Header & Navigation */
-        header {
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-        
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .logo-circle {
-            width: 40px;
-            height: 40px;
-            background-color: #2563eb;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-weight: bold;
-            font-size: 18px;
-        }
-        
-        .logo-text {
-            font-size: 20px;
-            font-weight: bold;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 30px;
-        }
-        
-        .nav-links a {
-            color: #555;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-        
-        .nav-links a:hover, .nav-links a.active {
-            color: #2563eb;
-        }
-        
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: #333;
-        }
-        
-        /* Project Detail Styles */
-        .project-header {
-            padding: 150px 0 60px;
-            background-color: white;
-        }
-        
-        .breadcrumbs {
-            margin-bottom: 20px;
-            color: #6b7280;
-            font-size: 14px;
-        }
-        
-        .project-meta {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-        }
-        
-        .meta-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: #6b7280;
-        }
-        
-        .meta-icon {
-            color: #2563eb;
-        }
-        
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 30px;
-        }
-        
-        .tag {
-            background-color: #dbeafe;
-            color: #1e40af;
-            font-size: 14px;
-            padding: 5px 12px;
-            border-radius: 20px;
-        }
-        
-        .project-content {
-            padding: 60px 0;
-        }
-        
-        .project-image {
-            width: 100%;
-            height: 400px;
-            background-color: #e5e7eb;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #9ca3af;
-            font-size: 20px;
-            margin-bottom: 40px;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        
-        .project-section {
-            margin-bottom: 50px;
-        }
-        
-        .project-section p {
-            color: #4b5563;
-        }
-        
-        .results-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin: 30px 0;
-        }
-        
-        .result-card {
-            background-color: white;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-        
-        .result-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .result-number {
-            font-size: 36px;
-            font-weight: bold;
-            color: #2563eb;
-            margin-bottom: 10px;
-        }
-        
-        .result-label {
-            color: #6b7280;
-        }
-        
-        .chart-container {
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            margin: 30px 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-        }
-        
-        .dashboard-container {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            margin: 30px 0;
-            overflow: hidden;
-        }
-        
-        .dashboard-container iframe {
-            width: 100%;
-            border: none;
-        }
-        
-        .methodology-steps {
-            counter-reset: step;
-            margin: 30px 0;
-        }
-        
-        .step {
-            position: relative;
-            padding-left: 50px;
-            margin-bottom: 30px;
-        }
-        
-        .step::before {
-            counter-increment: step;
-            content: counter(step);
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 36px;
-            height: 36px;
-            background-color: #2563eb;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: bold;
-        }
-        
-        .step h4 {
-            margin-bottom: 10px;
-        }
-        
-        .next-prev {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 60px;
-            padding-top: 30px;
-            border-top: 1px solid #e5e7eb;
-        }
-        
-        .next-prev a {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .next-prev-arrow {
-            font-size: 20px;
-        }
-
-        /* New Diagnostic Analysis Styles */
-        .diagnostic-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 60px 0;
-            margin: 60px 0;
-            border-radius: 16px;
-        }
-        
-        .diagnostic-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        
-        .diagnostic-badge {
-            background-color: rgba(255, 255, 255, 0.2);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 20px;
-        }
-        
-        .diagnostic-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin: 40px 0;
-        }
-        
-        .diagnostic-card {
-            background-color: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 30px;
-            border-radius: 12px;
-            transition: transform 0.3s ease, background-color 0.3s ease;
-        }
-        
-        .diagnostic-card:hover {
-            transform: translateY(-5px);
-            background-color: rgba(255, 255, 255, 0.15);
-        }
-        
-        .diagnostic-card h4 {
-            color: #fbbf24;
-            margin-bottom: 15px;
-            font-size: 1.2rem;
-        }
-        
-        .diagnostic-card p {
-            color: rgba(255, 255, 255, 0.9);
-            line-height: 1.6;
-        }
-        
-        .insight-highlight {
-            background-color: rgba(251, 191, 36, 0.2);
-            border-left: 4px solid #fbbf24;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-        }
-        
-        .insight-highlight h4 {
-            color: #fbbf24;
-            margin-bottom: 10px;
-        }
-        
-        .timeline-visual {
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 30px;
-            border-radius: 12px;
-            margin: 30px 0;
-        }
-        
-        .timeline-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-            padding: 15px;
-            background-color: rgba(255, 255, 255, 0.05);
-            border-radius: 8px;
-        }
-        
-        .timeline-year {
-            background-color: #fbbf24;
-            color: #1f2937;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-weight: bold;
-            margin-right: 20px;
-            min-width: 80px;
-            text-align: center;
-        }
-        
-        .next-prev {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 60px;
-            padding-top: 30px;
-            border-top: 1px solid #e5e7eb;
-        }
-        
-        .next-prev a {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .next-prev-arrow {
-            font-size: 20px;
-        }
-        
-        /* Call to Action */
-        .cta {
-            background-color: #f3f4f6;
-            padding: 60px 0;
-            text-align: center;
-        }
-        
-        .cta h2 {
-            margin-bottom: 20px;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: #1f2937;
-            color: white;
-            padding: 40px 0;
-        }
-        
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .footer-logo-circle {
-            width: 30px;
-            height: 30px;
-            background-color: #2563eb;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-weight: bold;
-            font-size: 14px;
-        }
-        
-        .footer-nav {
-            display: flex;
-            gap: 20px;
-        }
-        
-        .footer-nav a {
-            color: #9ca3af;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-nav a:hover {
-            color: white;
-        }
-        
-        .footer-social {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .footer-social a {
-            color: #9ca3af;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-social a:hover {
-            color: white;
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid #374151;
-            color: #9ca3af;
-            font-size: 14px;
-        }
-        
-        /* Responsive Styles */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .results-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-content {
-                flex-direction: column;
-                gap: 20px;
-                text-align: center;
-            }
-            
-            .footer-logo {
-                justify-content: center;
-            }
-            
-            .next-prev {
-                flex-direction: column;
-                gap: 20px;
-                align-items: center;
-            }
-            
-            .dashboard-container iframe {
-                height: 300px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Header -->
-    <header>
+    <a href="#main-content" class="sr-only">Skip to main content</a>
+    <header role="banner">
         <div class="container">
-            <nav>
+            <nav role="navigation" aria-label="Main navigation">
                 <div class="logo">
                     <div class="logo-circle">JN</div>
                     <div class="logo-text">JN Data Analytics</div>
                 </div>
                 
-                <div class="nav-links">
-                    <a href="index.html">Home</a>
-                    <a href="index.html#about">About</a>
-                    <a href="index.html#services">Services</a>
-                    <a href="projects.html" class="active">Portfolio</a>
-                    <a href="index.html#testimonials">Testimonials</a>
-                    <a href="index.html#contact">Contact</a>
+                <div class="nav-links" id="main-navigation" role="menubar">
+                    <a href="index.html" role="menuitem">Home</a>
+                    <a href="index.html#about" role="menuitem">About</a>
+                    <a href="index.html#services" role="menuitem">Services</a>
+                    <a href="projects.html" class="active" role="menuitem" aria-current="page">Portfolio</a>
+                    <a href="index.html#testimonials" role="menuitem">Testimonials</a>
+                    <a href="index.html#contact" role="menuitem">Contact</a>
                 </div>
                 
-                <button class="mobile-menu-btn">☰</button>
+                <button class="mobile-menu-btn" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="main-navigation">
+                    ☰
+                </button>
             </nav>
         </div>
     </header>
-    
-    <!-- Project Header -->
-    <section class="project-header">
+
+    <main id="main-content" role="main">
+        <section class="project-header" aria-labelledby="project-title">
         <div class="container">
             <div class="breadcrumbs">
                 <a href="index.html">Home</a> > <a href="projects.html">Projects</a> > Victoria Burglary Analysis
             </div>
             
-            <h1>Victoria's Burglary Crisis: The 24.8% Surge in 2024</h1>
+            <h1 id="project-title">Victoria's Burglary Crisis: The 24.8% Surge in 2024</h1>
             
-            <div class="project-meta">
+            <div class="project-meta" role="contentinfo" aria-label="Project metadata">
                 <div class="meta-item">
-                    <span class="meta-icon">📅</span>
-                    <span>Completed: April 2025</span>
+                    <span class="meta-icon" aria-label="Completion date">📅</span>
+                    <span>Completed: <time datetime="2025-04">April 2025</time></span>
                 </div>
                 <!-- <div class="meta-item">
                     <span class="meta-icon">👤</span>
                     <span>Client: Roller Shutter Manufacturer</span>
                 </div> -->
                 <div class="meta-item">
-                    <span class="meta-icon">⏱️</span>
+                    <span class="meta-icon" aria-label="Project duration">⏱️</span>
                     <span>Duration: 12 weeks</span>
                 </div>
             </div>
@@ -628,14 +70,22 @@
             <p>A comprehensive analysis of Victoria's burglary data from 2015-2024, revealing alarming trends, geographic hotspots, and justice system challenges in addressing the 24.8% surge in burglary incidents.</p>
         </div>
     </section>
-    
-    <!-- Project Content -->
-    <section class="project-content">
+
+        <section class="project-content" aria-labelledby="project-overview">
         <div class="container">
-            <!-- Power BI Dashboard -->
-            <div class="dashboard-container">
-                <iframe title="home_invasion_analysis_victoria_2025" width="800" height="636" src="https://app.powerbi.com/view?r=eyJrIjoiZjc2MzE4MWYtNDAwZi00NDA4LTk4OGEtMmMxY2YwMGMzZTEzIiwidCI6IjY5NmUzYTFiLWEyOTgtNGYwYS04NThkLTg3NzhhNWRmODI3NCJ9&pageName=95ff35686a60a4e96ed8" frameborder="0" allowFullScreen="true"></iframe>
-            </div>
+            <figure class="dashboard-container" aria-labelledby="dashboard-title">
+                <h2 id="dashboard-title" class="sr-only">Interactive Power BI Dashboard - Victoria Burglary Analysis</h2>
+                <iframe
+                    title="Interactive Power BI Dashboard showing Victoria burglary analysis data from 2015-2024"
+                    width="800"
+                    height="636"
+                    src="https://app.powerbi.com/view?r=eyJrIjoiZjc2MzE4MWYtNDAwZi00NDA4LTk4OGEtMmMxY2YwMGMzZTEzIiwidCI6IjY5NmUzYTFiLWEyOTgtNGYwYS04NThkLTg3NzhhNWRmODI3NCJ9&pageName=95ff35686a60a4e96ed8"
+                    frameborder="0"
+                    allowFullScreen="true"
+                    aria-describedby="dashboard-description">
+                </iframe>
+                <p id="dashboard-description" class="sr-only">This interactive dashboard visualizes burglary data across Victoria from 2015-2024, showing trends, geographic hotspots, and clearance rates.</p>
+            </figure>
             
             <div class="project-section">
                 <h2>Project Overview</h2>
@@ -898,19 +348,16 @@
         </div>
     </section>
 
-    
-    
-    <!-- Call to Action -->
-    <section class="cta">
+
+    <aside class="cta" aria-labelledby="cta-heading">
         <div class="container">
-            <h2>Need Data-Driven Crime Analysis for Your Region?</h2>
+            <h2 id="cta-heading">Need Data-Driven Crime Analysis for Your Region?</h2>
             <p>I can help transform complex crime data into actionable insights that improve public safety and resource allocation.</p>
             <a href="index.html#contact" class="btn btn-primary">Let's Talk</a>
         </div>
-    </section>
-    
-    <!-- Footer -->
-    <footer>
+    </aside>
+
+    <footer role="contentinfo">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
@@ -940,16 +387,6 @@
         </div>
     </footer>
 
-    <script>
-        // Simple JavaScript for mobile menu
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuBtn = document.querySelector('.mobile-menu-btn');
-            const navLinks = document.querySelector('.nav-links');
-            
-            menuBtn.addEventListener('click', function() {
-                navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-            });
-        });
-    </script>
+    <script src="script.js" defer></script>
 </body>
 </html>
