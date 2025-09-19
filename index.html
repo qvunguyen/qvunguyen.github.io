@@ -1,8 +1,13 @@
 <!DOCTYPE html>
+<!-- HTML5 document declaration -->
 <html lang="en">
+<!-- Main HTML container with English language attribute for accessibility -->
 <head>
+    <!-- Document metadata and configuration -->
     <meta charset="UTF-8">
+    <!-- Responsive design viewport setting for mobile devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Page title displayed in browser tab and search results -->
     <title>Data Analyst Portfolio | Jason Nguyen</title>
         <!-- SEO Meta Tags -->
     <meta name="description" content="Jason Nguyen is a data analyst with 2+ years of experience transforming raw data into actionable insights. Specializing in crime analytics, financial analysis, and data visualization.">
@@ -25,7 +30,7 @@
     <!-- Canonical URL to prevent duplicate content issues -->
     <link rel="canonical" href="https://www.jndataanalytics.com/">
 
-    <!-- External CSS -->
+    <!-- External CSS stylesheet for page styling -->
     <link rel="stylesheet" href="index.css">
 <!-- Structured Data for Organization -->
 <script type="application/ld+json">
@@ -97,15 +102,21 @@
 
 </head>
 <body>
-    <!-- Header -->
+    <!-- Main page content starts here -->
+
+    <!-- Site header with navigation -->
     <header>
+        <!-- Main container for header content -->
         <div class="container">
+            <!-- Navigation bar -->
             <nav>
+                <!-- Company logo and branding -->
                 <div class="logo">
                     <div class="logo-circle">JN</div>
                     <div class="logo-text">JN Data Analytics</div>
                 </div>
-                
+
+                <!-- Main navigation links (hidden on mobile) -->
                 <div class="nav-links" id="navLinks">
                     <a href="#hero" class="active">Home</a>
                     <a href="#about">About</a>
@@ -114,26 +125,34 @@
                     <a href="#testimonials">Testimonials</a>
                     <a href="#contact">Contact</a>
                 </div>
-                
+
+                <!-- Mobile hamburger menu button -->
                 <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">☰</button>
             </nav>
         </div>
     </header>
     
-    <!-- Hero Section -->
+    <!-- Hero Section - Main landing area with call-to-action -->
     <section id="hero">
         <div class="container">
+            <!-- Hero content wrapper -->
             <div class="hero-content">
+                <!-- Left side: Text content and call-to-action buttons -->
                 <div class="hero-text">
+                    <!-- Main headline with highlighted text -->
                     <h1>Transform Your Data into <span style="color: #2563eb;">Actionable Insights</span></h1>
+                    <!-- Value proposition subtitle -->
                     <p>Professional data analysis services to help your business make data-driven decisions</p>
+                    <!-- Call-to-action buttons -->
                     <div class="hero-buttons">
                         <a href="#portfolio" class="btn btn-primary">View My Work</a>
                         <a href="#contact" class="btn btn-secondary">Contact Me</a>
                     </div>
                 </div>
-                
+
+                <!-- Right side: Visual element -->
                 <div class="hero-image">
+                    <!-- SVG chart container for visual appeal -->
                     <div class="chart-container">
                         <object type="image/svg+xml" data="images/data-analysis-chart.svg" class="responsive-chart">
                             Data Analysis Chart
@@ -144,21 +163,28 @@
         </div>
     </section>
     
-    <!-- About Section -->
+    <!-- About Section - Personal introduction and background -->
     <section id="about">
         <div class="container">
+            <!-- Section heading -->
             <h2>About Me</h2>
-            
+
+            <!-- About content layout -->
             <div class="about-content">
+                <!-- Left side: Profile photo -->
                 <div class="about-image">
                     <img src="images/profile.jpg" alt="Jason Nguyen, Data Analyst based in Victoria" class="profile-image">
                 </div>
-                
+
+                <!-- Right side: Personal description and social links -->
                 <div class="about-text">
+                    <!-- Experience headline -->
                     <h3>Data Analyst with 2+ Years of Experience</h3>
+                    <!-- Personal introduction paragraphs -->
                     <p>Hi, my name is Jason. I help businesses unlock the power of their data through comprehensive analysis and visualization. With expertise in statistical methods, machine learning, and various data tools, I transform raw data into strategic insights that drive business growth.</p>
                     <p>My analytical approach combines technical excellence with business acumen, ensuring that the insights I provide are not just technically sound but also aligned with your business objectives.</p>
-                    
+
+                    <!-- Social media links -->
                     <div class="social-links">
                         <a href="https://www.linkedin.com/in/jason-nguyen-7105231a5/" class="social-icon">
                             in
@@ -166,6 +192,7 @@
                         <a href="https://github.com/qvunguyen" class="social-icon">
                             &lt;/&gt;
                         </a>
+                        <!-- Resume link (currently commented out) -->
                         <!-- <a href="#" class="social-icon">
                             📄
                         </a> -->
@@ -173,7 +200,9 @@
                 </div>
             </div>
             
+            <!-- Skills and expertise grid layout -->
             <div class="skills-grid">
+                <!-- Technical programming skills -->
                 <div class="skill-card">
                     <h4>Technical Skills</h4>
                     <ul>
@@ -183,7 +212,8 @@
                         <li>Machine Learning</li>
                     </ul>
                 </div>
-                
+
+                <!-- Software tools and platforms -->
                 <div class="skill-card">
                     <h4>Tools & Platforms</h4>
                     <ul>
@@ -193,7 +223,8 @@
                         <li>Git & Version Control</li>
                     </ul>
                 </div>
-                
+
+                <!-- Industry experience -->
                 <div class="skill-card">
                     <h4>Industries</h4>
                     <ul>
@@ -203,7 +234,8 @@
                         <li>Manufacturing</li>
                     </ul>
                 </div>
-                
+
+                <!-- Professional certifications -->
                 <div class="skill-card">
                     <h4>Certifications</h4>
                         <ul>
@@ -216,58 +248,71 @@
         </div>
     </section>
     
-    <!-- Services Section -->
+    <!-- Services Section - What I offer to clients -->
     <section id="services">
         <div class="container">
+            <!-- Section heading -->
             <h2>My Services</h2>
+            <!-- Service introduction -->
             <div class="section-intro">
                 <p>Comprehensive data analysis services tailored to your specific business needs</p>
             </div>
             
+            <!-- Grid layout for service offerings -->
             <div class="services-grid">
+                <!-- Data preparation service -->
                 <div class="service-card">
                     <h3>Data Cleaning & Preparation</h3>
                     <p>Transform raw data into structured, analysis-ready formats with thorough cleaning, validation, and preprocessing.</p>
                 </div>
-                
+
+                <!-- Statistical analysis service -->
                 <div class="service-card">
                     <h3>Statistical Analysis</h3>
                     <p>Apply statistical methods to extract insights, identify patterns, and make data-driven decisions.</p>
                 </div>
-                
+
+                <!-- Data visualization service -->
                 <div class="service-card">
                     <h3>Data Visualization</h3>
                     <p>Create compelling visual representations of data insights using modern visualization tools and techniques.</p>
                 </div>
-                
+
+                <!-- Dashboard creation service -->
                 <div class="service-card">
                     <h3>Dashboard Development</h3>
                     <p>Design and implement interactive dashboards for real-time monitoring of key performance indicators.</p>
                 </div>
             </div>
             
+            <!-- Work process methodology -->
             <div class="process">
                 <h3>My Process</h3>
-                
+
+                <!-- Step-by-step process visualization -->
                 <div class="process-steps">
+                    <!-- Step 1: Initial consultation -->
                     <div class="process-step">
                         <div class="step-number">1</div>
                         <h4>Discovery</h4>
                         <p>Understanding your business needs and defining clear objectives</p>
                     </div>
-                    
+
+                    <!-- Step 2: Data gathering -->
                     <div class="process-step">
                         <div class="step-number">2</div>
                         <h4>Data Collection</h4>
                         <p>Gathering and organizing relevant data from various sources</p>
                     </div>
-                    
+
+                    <!-- Step 3: Data analysis -->
                     <div class="process-step">
                         <div class="step-number">3</div>
                         <h4>Analysis</h4>
                         <p>Applying analytical techniques to extract meaningful insights</p>
                     </div>
-                    
+
+                    <!-- Step 4: Results delivery -->
                     <div class="process-step">
                         <div class="step-number">4</div>
                         <h4>Implementation</h4>
@@ -278,10 +323,12 @@
         </div>
     </section>
     
-    <!-- Portfolio Section -->
+    <!-- Portfolio Section - Showcase of completed projects -->
     <section id="portfolio">
         <div class="container">
+            <!-- Section heading -->
             <h2>Featured Projects</h2>
+            <!-- Portfolio introduction -->
             <div class="section-intro">
                 <p>A selection of my recent data analysis and visualization projects</p>
             </div>
@@ -358,10 +405,12 @@
         </div>
     </section>
     
-    <!-- Testimonials Section -->
+    <!-- Testimonials Section - Client feedback and reviews -->
     <section id="testimonials">
         <div class="container">
+            <!-- Section heading -->
             <h2>Client Testimonials</h2>
+            <!-- Testimonials introduction -->
             <div class="section-intro">
                 <p>What my clients say about working with me</p>
             </div>
@@ -392,10 +441,12 @@
         </div>
     </section>
     
-    <!-- Contact Section -->
+    <!-- Contact Section - Contact information and form -->
     <section id="contact">
         <div class="container">
+            <!-- Section heading -->
             <h2>Get In Touch</h2>
+            <!-- Contact introduction -->
             <div class="section-intro">
                 <p>Ready to transform your data into actionable insights? Let's discuss your project.</p>
             </div>
@@ -429,9 +480,11 @@
                     </div>
                 </div>
                 
-                <!-- Updated Contact Form with Formspree -->
+                <!-- Contact form using Formspree service for email handling -->
 <div class="contact-form">
+    <!-- Form submission handled by Formspree -->
     <form action="https://formspree.io/f/xblojwaj" method="POST">
+        <!-- Name and email fields in a row layout -->
         <div class="form-row">
             <div class="form-group">
                 <label for="name">Name</label>
@@ -442,14 +495,17 @@
                 <input type="email" id="email" name="email" placeholder="Your Email" required>
             </div>
         </div>
+        <!-- Subject field -->
         <div class="form-group">
             <label for="subject">Subject</label>
             <input type="text" id="subject" name="subject" placeholder="Subject" required>
         </div>
+        <!-- Message textarea field -->
         <div class="form-group">
             <label for="message">Message</label>
             <textarea id="message" name="message" placeholder="Your Message" required></textarea>
         </div>
+        <!-- Form submission button -->
         <button type="submit" class="btn btn-primary">Send Message</button>
     </form>
 </div>
@@ -457,15 +513,18 @@
         </div>
     </section>
     
-    <!-- Footer -->
+    <!-- Site footer with navigation and legal information -->
     <footer>
         <div class="container">
+            <!-- Main footer content -->
             <div class="footer-content">
+                <!-- Footer logo and branding -->
                 <div class="footer-logo">
                     <div class="footer-logo-circle">JN</div>
                     <span>JN Data Analytics</span>
                 </div>
-                
+
+                <!-- Footer navigation links -->
                 <div class="footer-nav">
                     <a href="#hero">Home</a>
                     <a href="#about">About</a>
@@ -474,21 +533,24 @@
                     <a href="#testimonials">Testimonials</a>
                     <a href="#contact">Contact</a>
                 </div>
-                
+
+                <!-- Social media links in footer -->
                 <div class="footer-social">
                     <a href="#">✉️</a>
                     <a href="#">in</a>
                     <a href="#">&lt;/&gt;</a>
                 </div>
             </div>
-            
+
+            <!-- Copyright and legal information -->
             <div class="footer-bottom">
                 <p>&copy; 2025 Jason Nguyen. All rights reserved. | Data Analyst based in Australia</p>
             </div>
         </div>
     </footer>
 
-    <!-- External JavaScript -->
+    <!-- External JavaScript file for interactive functionality -->
+    <!-- 'defer' attribute ensures script runs after HTML parsing is complete -->
     <script src="index.js" defer></script>
 </body>
 </html>
