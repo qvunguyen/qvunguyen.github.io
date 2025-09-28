@@ -621,6 +621,36 @@ a:hover {
     .contact-form {
         width: 100%;
     }
+
+    /* Enhanced mobile footer fixes */
+    footer {
+        padding: 2rem 0;
+    }
+
+    .footer-content {
+        padding: 0 0.75rem;
+        gap: 1.5rem;
+    }
+
+    .footer-nav {
+        gap: 1rem;
+    }
+
+    .footer-nav a {
+        font-size: 0.85rem;
+        white-space: nowrap;
+    }
+
+    .footer-bottom {
+        margin-top: 1.5rem;
+        padding: 1rem 0.75rem 0;
+        font-size: 0.8rem;
+    }
+
+    .footer-bottom p {
+        max-width: 100%;
+        margin: 0;
+    }
 }
 
 /* Typography */
@@ -1391,9 +1421,37 @@ footer {
         flex-direction: column;
         gap: 20px;
         text-align: center;
+        padding: 0 1rem;
     }
 
     .footer-logo {
         justify-content: center;
+    }
+
+    .footer-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .footer-nav a {
+        font-size: 0.9rem;
+        padding: 0.25rem 0;
+    }
+
+    .footer-social {
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .footer-bottom {
+        padding: 0 1rem;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .footer-bottom p {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
 }
