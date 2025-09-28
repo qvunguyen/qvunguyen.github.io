@@ -1,0 +1,51 @@
+# Robots.txt for JN Data Analytics - Melbourne Data Analyst
+# Optimized for search engine crawling and Melbourne local SEO
+
+User-agent: *
+Allow: /
+
+# Allow access to CSS and JavaScript for proper rendering
+Allow: /index.css
+Allow: /index.js
+Allow: /coming_soon/coming_soon.css
+Allow: /coming_soon/coming_soon.js
+Allow: /home_security_analysis/
+
+# Allow access to images for visual content
+Allow: /images/
+
+# Sitemap location for search engines
+Sitemap: https://www.jndataanalytics.com/sitemap.xml
+
+# Crawl-delay to be respectful to server resources
+Crawl-delay: 1
+
+# Specific instructions for major search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Allow social media crawlers for Open Graph
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# Block access to any potential admin or private areas
+# (Currently none, but good practice for future)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /.git/
+
+# Block access to development files
+Disallow: /*.tmp
+Disallow: /*.bak
+Disallow: /*~
