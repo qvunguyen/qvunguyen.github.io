@@ -29,6 +29,87 @@ a:hover {
     padding: 0 20px;
 }
 
+/* Form Validation Styles */
+.error-message {
+    color: #ef4444;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    display: none;
+}
+
+.form-group.error input,
+.form-group.error textarea {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 1px #ef4444;
+}
+
+.form-group.success input,
+.form-group.success textarea {
+    border-color: #10b981;
+    box-shadow: 0 0 0 1px #10b981;
+}
+
+.character-count {
+    font-size: 0.875rem;
+    color: #6b7280;
+    text-align: right;
+    margin-top: 0.25rem;
+}
+
+.character-count.warning {
+    color: #f59e0b;
+}
+
+.character-count.danger {
+    color: #ef4444;
+}
+
+#form-status {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    font-weight: 500;
+}
+
+#form-status.success {
+    background-color: #d1fae5;
+    color: #065f46;
+    border: 1px solid #10b981;
+}
+
+#form-status.error {
+    background-color: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #ef4444;
+}
+
+#submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+#btn-loading {
+    display: inline-flex;
+    align-items: center;
+}
+
+#btn-loading::after {
+    content: '';
+    width: 1rem;
+    height: 1rem;
+    margin-left: 0.5rem;
+    border: 2px solid transparent;
+    border-top: 2px solid currentColor;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 /* Typography */
 h1, h2, h3, h4, h5 {
     font-weight: 700;

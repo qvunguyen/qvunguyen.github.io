@@ -487,30 +487,52 @@
                 <!-- Contact form using Formspree service for email handling -->
 <div class="contact-form">
     <!-- Form submission handled by Formspree -->
-    <form action="https://formspree.io/f/xblojwaj" method="POST">
+    <form action="https://formspree.io/f/xblojwaj" method="POST" id="contactForm" novalidate>
+        <!-- Honeypot field for spam protection (hidden from users) -->
+        <input type="text" name="_gotcha" style="display: none;">
+
         <!-- Name and email fields in a row layout -->
         <div class="form-row">
             <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                <label for="name">Name <span style="color: #ef4444;">*</span></label>
+                <input type="text" id="name" name="name" placeholder="Your Name" required
+                       minlength="2" maxlength="100" pattern="[A-Za-z\s\-']{2,100}"
+                       autocomplete="name">
+                <div class="error-message" id="name-error"></div>
             </div>
             <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                <label for="email">Email <span style="color: #ef4444;">*</span></label>
+                <input type="email" id="email" name="email" placeholder="Your Email" required
+                       maxlength="254" autocomplete="email">
+                <div class="error-message" id="email-error"></div>
             </div>
         </div>
         <!-- Subject field -->
         <div class="form-group">
-            <label for="subject">Subject</label>
-            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+            <label for="subject">Subject <span style="color: #ef4444;">*</span></label>
+            <input type="text" id="subject" name="subject" placeholder="Subject" required
+                   minlength="5" maxlength="200">
+            <div class="error-message" id="subject-error"></div>
         </div>
         <!-- Message textarea field -->
         <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+            <label for="message">Message <span style="color: #ef4444;">*</span></label>
+            <textarea id="message" name="message" placeholder="Your Message" required
+                      minlength="10" maxlength="5000" rows="6"></textarea>
+            <div class="error-message" id="message-error"></div>
+            <div class="character-count">
+                <span id="message-count">0</span>/5000 characters
+            </div>
         </div>
+
         <!-- Form submission button -->
-        <button type="submit" class="btn btn-primary">Send Message</button>
+        <button type="submit" class="btn btn-primary" id="submit-btn">
+            <span id="btn-text">Send Message</span>
+            <span id="btn-loading" style="display: none;">Sending...</span>
+        </button>
+
+        <!-- Form status messages -->
+        <div id="form-status" style="margin-top: 1rem; display: none;"></div>
 
         <!-- Privacy notice -->
         <p style="font-size: 0.875rem; color: #6b7280; margin-top: 1rem;">
