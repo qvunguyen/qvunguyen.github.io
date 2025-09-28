@@ -1,240 +1,245 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Privacy Policy for JN Data Analytics - How we collect, use, and protect your personal information.">
     <meta name="keywords" content="privacy policy, data protection, personal information, JN Data Analytics">
     <meta name="author" content="JN Data Analytics">
-    <title>Privacy Policy | JN Data Analytics</title>
+    <title>Privacy Policy | Jason Nguyen - Data Analyst</title>
 
     <!-- Security Headers -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; frame-src 'none'; connect-src 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://app.powerbi.com https://formspree.io https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; object-src 'self' data:; frame-src https://app.powerbi.com; connect-src 'self' https://formspree.io https://www.google-analytics.com;">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
 
     <link rel="stylesheet" href="index.css">
     <style>
-        .privacy-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem;
-            line-height: 1.6;
-        }
-        .privacy-header {
+        .text-center {
             text-align: center;
-            margin-bottom: 3rem;
-            padding-top: 100px;
-        }
-        .privacy-content h2 {
-            color: #2563eb;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-        }
-        .privacy-content h3 {
-            color: #374151;
-            margin-top: 1.5rem;
-            margin-bottom: 0.75rem;
-        }
-        .privacy-content p, .privacy-content li {
-            color: #6b7280;
-            margin-bottom: 1rem;
-        }
-        .privacy-content ul {
-            margin-left: 1.5rem;
-        }
-        .last-updated {
-            background: #f3f4f6;
-            padding: 1rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-            font-style: italic;
-        }
-        .contact-info {
-            background: #eff6ff;
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 4px solid #2563eb;
-            margin-top: 2rem;
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <nav>
-                <a href="index.html" class="logo" aria-label="Return to home page">
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <div class="nav-content">
+            <div class="nav-inner">
+                <a href="index.html" class="nav-logo">
                     <div class="logo-circle">JN</div>
-                    <div class="logo-text">JN Data Analytics</div>
+                    <span class="logo-text">Jason Nguyen</span>
                 </a>
 
-                <div class="nav-links" id="navLinks">
-                    <a href="index.html">Home</a>
-                    <a href="index.html#about">About</a>
-                    <a href="index.html#services">Services</a>
-                    <a href="index.html#portfolio">Portfolio</a>
-                    <a href="index.html#testimonials">Testimonials</a>
-                    <a href="index.html#contact">Contact</a>
+                <!-- Desktop Navigation -->
+                <div class="nav-links-desktop">
+                    <a href="index.html#about" class="nav-link">About</a>
+                    <a href="index.html#skills" class="nav-link">Skills</a>
+                    <a href="index.html#portfolio" class="nav-link">Projects</a>
+                    <a href="index.html#testimonials" class="nav-link">Testimonials</a>
+                    <a href="index.html#contact" class="nav-link">Contact</a>
                 </div>
 
-                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">☰</button>
-            </nav>
+                <!-- Theme Toggle -->
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <svg class="theme-icon sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"/>
+                        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                    </svg>
+                    <svg class="theme-icon moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+                    </svg>
+                </button>
+
+                <!-- Mobile Navigation Button -->
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+                    <svg class="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="4" x2="20" y1="6" y2="6"/>
+                        <line x1="4" x2="20" y1="12" y2="12"/>
+                        <line x1="4" x2="20" y1="18" y2="18"/>
+                    </svg>
+                    <svg class="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 6 6 18"/>
+                        <path d="M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation Menu -->
+            <div class="mobile-nav" id="mobileNav">
+                <div class="mobile-nav-links">
+                    <a href="index.html#about" class="mobile-nav-link">About</a>
+                    <a href="index.html#skills" class="mobile-nav-link">Skills</a>
+                    <a href="index.html#portfolio" class="mobile-nav-link">Projects</a>
+                    <a href="index.html#testimonials" class="mobile-nav-link">Testimonials</a>
+                    <a href="index.html#contact" class="mobile-nav-link">Contact</a>
+                </div>
+            </div>
         </div>
-    </header>
+    </nav>
 
     <main>
-        <div class="privacy-container">
-            <div class="privacy-header">
-                <h1>Privacy Policy</h1>
-                <p>Your privacy is important to us. This policy explains how we collect, use, and protect your information.</p>
+        <!-- Privacy Policy Header Section -->
+        <section class="section" style="padding-top: 120px;">
+            <div class="container">
+                <div class="text-center">
+                    <h1 class="section-title">Privacy Policy</h1>
+                    <div class="section-intro">
+                        <p>Your privacy is important to us. This policy explains how we collect, use, and protect your information.</p>
+                    </div>
+                    
+                    <div class="last-updated" style="background: var(--surface-secondary); padding: 1rem; border-radius: 8px; margin: 2rem auto; font-style: italic; max-width: 600px; border-left: 4px solid var(--primary);">
+                        <strong>Last Updated:</strong> September 28, 2025
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <div class="last-updated">
-                <strong>Last Updated:</strong> September 28, 2025
-            </div>
+        <!-- Privacy Policy Content Section -->
+        <section class="section section-alt">
+            <div class="container">
+                <div class="privacy-content" style="max-width: 800px; margin: 0 auto; line-height: 1.7;">
+                <h2 style="color: var(--primary); margin-top: 2.5rem; margin-bottom: 1.2rem; font-size: 1.5rem; font-weight: 600;">1. Information We Collect</h2>
 
-            <div class="privacy-content">
-                <h2>1. Information We Collect</h2>
-
-                <h3>Personal Information</h3>
-                <p>When you contact us through our website, we may collect:</p>
-                <ul>
-                    <li>Your name and email address</li>
-                    <li>Subject line and message content</li>
-                    <li>Any additional information you voluntarily provide</li>
+                <h3 style="color: var(--text-primary); margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem; font-weight: 500;">Personal Information</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;">When you contact us through our website, we may collect:</p>
+                <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                    <li style="margin-bottom: 0.5rem;">Your name and email address</li>
+                    <li style="margin-bottom: 0.5rem;">Subject line and message content</li>
+                    <li style="margin-bottom: 0.5rem;">Any additional information you voluntarily provide</li>
                 </ul>
 
-                <h3>Automatically Collected Information</h3>
-                <p>We may automatically collect certain technical information when you visit our website:</p>
-                <ul>
-                    <li>IP address and browser type</li>
-                    <li>Pages visited and time spent on our site</li>
-                    <li>Referring website and search terms used</li>
-                    <li>Device information and screen resolution</li>
+                <h3 style="color: var(--text-primary); margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem; font-weight: 500;">Automatically Collected Information</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;">We may automatically collect certain technical information when you visit our website:</p>
+                <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                    <li style="margin-bottom: 0.5rem;">IP address and browser type</li>
+                    <li style="margin-bottom: 0.5rem;">Pages visited and time spent on our site</li>
+                    <li style="margin-bottom: 0.5rem;">Referring website and search terms used</li>
+                    <li style="margin-bottom: 0.5rem;">Device information and screen resolution</li>
                 </ul>
 
-                <h2>2. How We Use Your Information</h2>
-                <p>We use the information we collect to:</p>
-                <ul>
-                    <li>Respond to your inquiries and provide customer support</li>
-                    <li>Send you information about our services (with your consent)</li>
-                    <li>Improve our website and user experience</li>
-                    <li>Comply with legal obligations</li>
-                    <li>Prevent fraud and ensure website security</li>
+                <h2 style="color: var(--primary); margin-top: 2.5rem; margin-bottom: 1.2rem; font-size: 1.5rem; font-weight: 600;">2. How We Use Your Information</h2>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;">We use the information we collect to:</p>
+                <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                    <li style="margin-bottom: 0.5rem;">Respond to your inquiries and provide customer support</li>
+                    <li style="margin-bottom: 0.5rem;">Send you information about our services (with your consent)</li>
+                    <li style="margin-bottom: 0.5rem;">Improve our website and user experience</li>
+                    <li style="margin-bottom: 0.5rem;">Comply with legal obligations</li>
+                    <li style="margin-bottom: 0.5rem;">Prevent fraud and ensure website security</li>
                 </ul>
 
-                <h2>3. Information Sharing and Disclosure</h2>
-                <p>We do not sell, trade, or rent your personal information to third parties. We may share your information only in the following circumstances:</p>
-                <ul>
-                    <li><strong>Service Providers:</strong> We use Formspree for contact form processing, which may have access to submitted form data</li>
-                    <li><strong>Legal Requirements:</strong> When required by law, regulation, or legal process</li>
-                    <li><strong>Business Protection:</strong> To protect our rights, property, or safety, or that of our users</li>
+                <h2 style="color: var(--primary); margin-top: 2.5rem; margin-bottom: 1.2rem; font-size: 1.5rem; font-weight: 600;">3. Information Sharing and Disclosure</h2>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;">We do not sell, trade, or rent your personal information to third parties. We may share your information only in the following circumstances:</p>
+                <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                    <li style="margin-bottom: 0.5rem;"><strong style="color: var(--text-primary);">Service Providers:</strong> We use Formspree for contact form processing, which may have access to submitted form data</li>
+                    <li style="margin-bottom: 0.5rem;"><strong style="color: var(--text-primary);">Legal Requirements:</strong> When required by law, regulation, or legal process</li>
+                    <li style="margin-bottom: 0.5rem;"><strong style="color: var(--text-primary);">Business Protection:</strong> To protect our rights, property, or safety, or that of our users</li>
                 </ul>
 
-                <h2>4. Third-Party Services</h2>
+                <h2 style="color: var(--primary); margin-top: 2.5rem; margin-bottom: 1.2rem; font-size: 1.5rem; font-weight: 600;">4. Third-Party Services</h2>
 
-                <h3>Formspree</h3>
-                <p>Our contact form is processed by Formspree. Information submitted through our contact form is subject to Formspree's privacy policy. We recommend reviewing their privacy practices at <a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener">https://formspree.io/legal/privacy-policy/</a></p>
+                <h3 style="color: var(--text-primary); margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem; font-weight: 500;">Formspree</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;">Our contact form is processed by Formspree. Information submitted through our contact form is subject to Formspree's privacy policy. We recommend reviewing their privacy practices at <a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener" style="color: var(--primary); text-decoration: underline;">https://formspree.io/legal/privacy-policy/</a></p>
 
-                <h3>Power BI</h3>
-                <p>We embed Microsoft Power BI dashboards for data visualization. These embeds may collect analytics data subject to Microsoft's privacy policy.</p>
+                <h3 style="color: var(--text-primary); margin-top: 2rem; margin-bottom: 1rem; font-size: 1.2rem; font-weight: 500;">Power BI</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;">We embed Microsoft Power BI dashboards for data visualization. These embeds may collect analytics data subject to Microsoft's privacy policy.</p>
 
-                <h2>5. Data Security</h2>
-                <p>We implement appropriate security measures to protect your personal information:</p>
-                <ul>
-                    <li>HTTPS encryption for all data transmission</li>
-                    <li>Content Security Policy headers to prevent XSS attacks</li>
-                    <li>Regular security monitoring and updates</li>
-                    <li>Secure hosting through GitHub Pages</li>
+                <h2 style="color: var(--primary); margin-top: 2.5rem; margin-bottom: 1.2rem; font-size: 1.5rem; font-weight: 600;">5. Data Security</h2>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;">We implement appropriate security measures to protect your personal information:</p>
+                <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                    <li style="margin-bottom: 0.5rem;">HTTPS encryption for all data transmission</li>
+                    <li style="margin-bottom: 0.5rem;">Content Security Policy headers to prevent XSS attacks</li>
+                    <li style="margin-bottom: 0.5rem;">Regular security monitoring and updates</li>
+                    <li style="margin-bottom: 0.5rem;">Secure hosting through GitHub Pages</li>
                 </ul>
 
-                <h2>6. Data Retention</h2>
-                <p>We retain your personal information only as long as necessary to:</p>
-                <ul>
-                    <li>Fulfill the purposes outlined in this privacy policy</li>
-                    <li>Comply with legal obligations</li>
-                    <li>Resolve disputes and enforce agreements</li>
+                <h2 style="color: var(--primary); margin-top: 2.5rem; margin-bottom: 1.2rem; font-size: 1.5rem; font-weight: 600;">6. Data Retention</h2>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;">We retain your personal information only as long as necessary to:</p>
+                <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                    <li style="margin-bottom: 0.5rem;">Fulfill the purposes outlined in this privacy policy</li>
+                    <li style="margin-bottom: 0.5rem;">Comply with legal obligations</li>
+                    <li style="margin-bottom: 0.5rem;">Resolve disputes and enforce agreements</li>
                 </ul>
 
-                <h2>7. Your Rights</h2>
-                <p>Depending on your location, you may have the following rights:</p>
-                <ul>
-                    <li><strong>Access:</strong> Request copies of your personal information</li>
-                    <li><strong>Correction:</strong> Request correction of inaccurate information</li>
-                    <li><strong>Deletion:</strong> Request deletion of your personal information</li>
-                    <li><strong>Portability:</strong> Request transfer of your data to another service</li>
-                    <li><strong>Opt-out:</strong> Unsubscribe from marketing communications</li>
+                <h2 style="color: var(--primary); margin-top: 2.5rem; margin-bottom: 1.2rem; font-size: 1.5rem; font-weight: 600;">7. Your Rights</h2>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;">Depending on your location, you may have the following rights:</p>
+                <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                    <li style="margin-bottom: 0.5rem;"><strong style="color: var(--text-primary);">Access:</strong> Request copies of your personal information</li>
+                    <li style="margin-bottom: 0.5rem;"><strong style="color: var(--text-primary);">Correction:</strong> Request correction of inaccurate information</li>
+                    <li style="margin-bottom: 0.5rem;"><strong style="color: var(--text-primary);">Deletion:</strong> Request deletion of your personal information</li>
+                    <li style="margin-bottom: 0.5rem;"><strong style="color: var(--text-primary);">Portability:</strong> Request transfer of your data to another service</li>
+                    <li style="margin-bottom: 0.5rem;"><strong style="color: var(--text-primary);">Opt-out:</strong> Unsubscribe from marketing communications</li>
                 </ul>
 
-                <h2>8. Cookies and Tracking</h2>
-                <p>Our website may use minimal tracking technologies:</p>
-                <ul>
-                    <li>Essential cookies for website functionality</li>
-                    <li>Analytics cookies to understand site usage (if implemented)</li>
-                    <li>No advertising or third-party tracking cookies</li>
+                <h2 style="color: var(--primary); margin-top: 2.5rem; margin-bottom: 1.2rem; font-size: 1.5rem; font-weight: 600;">8. Cookies and Tracking</h2>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;">Our website may use minimal tracking technologies:</p>
+                <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                    <li style="margin-bottom: 0.5rem;">Essential cookies for website functionality</li>
+                    <li style="margin-bottom: 0.5rem;">Analytics cookies to understand site usage (if implemented)</li>
+                    <li style="margin-bottom: 0.5rem;">No advertising or third-party tracking cookies</li>
                 </ul>
 
-                <h2>9. Children's Privacy</h2>
-                <p>Our services are not directed to children under 13. We do not knowingly collect personal information from children under 13. If you believe we have collected such information, please contact us immediately.</p>
+                <h2 style="color: var(--primary); margin-top: 2.5rem; margin-bottom: 1.2rem; font-size: 1.5rem; font-weight: 600;">9. Children's Privacy</h2>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;">Our services are not directed to children under 13. We do not knowingly collect personal information from children under 13. If you believe we have collected such information, please contact us immediately.</p>
 
-                <h2>10. International Data Transfers</h2>
-                <p>Your information may be transferred to and processed in countries other than your own. We ensure appropriate safeguards are in place to protect your information during such transfers.</p>
+                <h2 style="color: var(--primary); margin-top: 2.5rem; margin-bottom: 1.2rem; font-size: 1.5rem; font-weight: 600;">10. International Data Transfers</h2>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;">Your information may be transferred to and processed in countries other than your own. We ensure appropriate safeguards are in place to protect your information during such transfers.</p>
 
-                <h2>11. Changes to This Policy</h2>
-                <p>We may update this privacy policy from time to time. We will notify you of any material changes by:</p>
-                <ul>
-                    <li>Posting the updated policy on this page</li>
-                    <li>Updating the "Last Updated" date</li>
-                    <li>Sending email notification for significant changes (if we have your email)</li>
+                <h2 style="color: var(--primary); margin-top: 2.5rem; margin-bottom: 1.2rem; font-size: 1.5rem; font-weight: 600;">11. Changes to This Policy</h2>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;">We may update this privacy policy from time to time. We will notify you of any material changes by:</p>
+                <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                    <li style="margin-bottom: 0.5rem;">Posting the updated policy on this page</li>
+                    <li style="margin-bottom: 0.5rem;">Updating the "Last Updated" date</li>
+                    <li style="margin-bottom: 0.5rem;">Sending email notification for significant changes (if we have your email)</li>
                 </ul>
 
-                <h2>12. Contact Information</h2>
-                <div class="contact-info">
-                    <p>If you have any questions about this privacy policy or our data practices, please contact us:</p>
-                    <p>
-                        <strong>Email:</strong> jason.nguyen@jndataanalytics.com<br>
-                        <strong>Business Name:</strong> JN Data Analytics<br>
-                        <strong>Location:</strong> Melbourne, Victoria, Australia
+                <h2 style="color: var(--primary); margin-top: 2.5rem; margin-bottom: 1.2rem; font-size: 1.5rem; font-weight: 600;">12. Contact Information</h2>
+                <div style="background: var(--surface-secondary); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--primary); margin: 2rem 0;">
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">If you have any questions about this privacy policy or our data practices, please contact us:</p>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                        <strong style="color: var(--text-primary);">Email:</strong> jason.nguyen@jndataanalytics.com<br>
+                        <strong style="color: var(--text-primary);">Business Name:</strong> JN Data Analytics<br>
+                        <strong style="color: var(--text-primary);">Location:</strong> Melbourne, Victoria, Australia
                     </p>
-                    <p>We will respond to your inquiry within 30 days.</p>
+                    <p style="color: var(--text-secondary); margin: 0;">We will respond to your inquiry within 30 days.</p>
                 </div>
 
-                <h2>13. Australian Privacy Principles</h2>
-                <p>As an Australian business, we comply with the Australian Privacy Principles (APPs) under the Privacy Act 1988. This includes:</p>
-                <ul>
-                    <li>Open and transparent management of personal information</li>
-                    <li>Anonymity and pseudonymity options where practical</li>
-                    <li>Collection limitation and notification requirements</li>
-                    <li>Data quality and security obligations</li>
-                    <li>Access and correction rights</li>
+                <h2 style="color: var(--primary); margin-top: 2.5rem; margin-bottom: 1.2rem; font-size: 1.5rem; font-weight: 600;">13. Australian Privacy Principles</h2>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;">As an Australian business, we comply with the Australian Privacy Principles (APPs) under the Privacy Act 1988. This includes:</p>
+                <ul style="margin-left: 1.5rem; color: var(--text-secondary); margin-bottom: 2rem;">
+                    <li style="margin-bottom: 0.5rem;">Open and transparent management of personal information</li>
+                    <li style="margin-bottom: 0.5rem;">Anonymity and pseudonymity options where practical</li>
+                    <li style="margin-bottom: 0.5rem;">Collection limitation and notification requirements</li>
+                    <li style="margin-bottom: 0.5rem;">Data quality and security obligations</li>
+                    <li style="margin-bottom: 0.5rem;">Access and correction rights</li>
                 </ul>
+                </div>
             </div>
-        </div>
+        </section>
     </main>
 
-    <footer>
+    <!-- Footer -->
+    <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
                     <div class="footer-logo-circle">JN</div>
-                    <span>JN Data Analytics</span>
+                    <span class="footer-logo-text">Jason Nguyen</span>
                 </div>
 
                 <div class="footer-nav">
-                    <a href="index.html">Home</a>
-                    <a href="index.html#about">About</a>
-                    <a href="index.html#services">Services</a>
-                    <a href="index.html#portfolio">Portfolio</a>
-                    <a href="index.html#testimonials">Testimonials</a>
-                    <a href="index.html#contact">Contact</a>
-                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="index.html#about" class="footer-link">About</a>
+                    <a href="index.html#skills" class="footer-link">Skills</a>
+                    <a href="index.html#portfolio" class="footer-link">Projects</a>
+                    <a href="index.html#testimonials" class="footer-link">Testimonials</a>
+                    <a href="index.html#contact" class="footer-link">Contact</a>
+                    <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
                 </div>
 
                 <div class="footer-social">
-                    <a href="mailto:jason.nguyen@jndataanalytics.com">✉️</a>
-                    <a href="https://www.linkedin.com/in/jason-nguyen-7105231a5/" target="_blank" rel="noopener noreferrer">in</a>
-                    <a href="https://github.com/qvunguyen" target="_blank" rel="noopener noreferrer">&lt;/&gt;</a>
+                    <a href="mailto:jason.nguyen@jndataanalytics.com" class="footer-social-link" aria-label="Email">✉️</a>
+                    <a href="https://www.linkedin.com/in/jason-nguyen-7105231a5/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="LinkedIn">in</a>
+                    <a href="https://github.com/qvunguyen" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="GitHub">&lt;/&gt;</a>
                 </div>
             </div>
 
