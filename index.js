@@ -276,6 +276,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     contactForm.reset();
                     messageCount.textContent = '0';
 
+                    // Track successful form submission
+                    if (typeof trackContactSubmission === 'function') {
+                        trackContactSubmission();
+                    }
+
                     // Clear all validation states
                     [nameField, emailField, subjectField, messageField].forEach(field => {
                         clearValidation(field);

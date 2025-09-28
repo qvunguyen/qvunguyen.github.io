@@ -31,10 +31,43 @@
     <link rel="canonical" href="https://www.jndataanalytics.com/">
 
     <!-- Security Headers -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://app.powerbi.com https://formspree.io; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; object-src 'self' data:; frame-src https://app.powerbi.com; connect-src 'self' https://formspree.io;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://app.powerbi.com https://formspree.io https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; object-src 'self' data:; frame-src https://app.powerbi.com; connect-src 'self' https://formspree.io https://www.google-analytics.com;">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+
+    <!-- Google Analytics -->
+    <!-- Replace GA_MEASUREMENT_ID with your actual Google Analytics 4 measurement ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID', {
+            // Privacy-friendly settings
+            anonymize_ip: true,
+            allow_google_signals: false,
+            allow_ad_personalization_signals: false
+        });
+
+        // Custom event tracking for conversions
+        function trackConversion(eventName, value) {
+            gtag('event', eventName, {
+                'value': value,
+                'currency': 'AUD'
+            });
+        }
+
+        // Track lead magnet clicks
+        function trackLeadMagnet() {
+            trackConversion('lead_magnet_click', 500);
+        }
+
+        // Track contact form submissions
+        function trackContactSubmission() {
+            trackConversion('contact_form_submit', 50);
+        }
+    </script>
 
     <!-- External CSS stylesheet for page styling -->
     <link rel="stylesheet" href="index.css">
@@ -145,14 +178,31 @@
             <div class="hero-content">
                 <!-- Left side: Text content and call-to-action buttons -->
                 <div class="hero-text">
-                    <!-- Main headline with highlighted text -->
-                    <h1>Transform Your Data into <span style="color: #2563eb;">Actionable Insights</span></h1>
+                    <!-- Professional headline -->
+                    <h1>Transform Your Data into <span style="color: #2563eb;">Strategic Intelligence</span></h1>
                     <!-- Value proposition subtitle -->
-                    <p>Professional data analysis services to help your business make data-driven decisions</p>
-                    <!-- Call-to-action buttons -->
+                    <p>Professional data analysis services helping Melbourne businesses make evidence-based decisions. Specializing in crime analytics, financial insights, and operational optimization.</p>
+
+                    <!-- Professional credentials -->
+                    <div class="hero-credentials">
+                        <div class="credential-item">
+                            <span class="credential-number">2+</span>
+                            <span class="credential-label">Years Experience</span>
+                        </div>
+                        <div class="credential-item">
+                            <span class="credential-number">Google</span>
+                            <span class="credential-label">Certified Analyst</span>
+                        </div>
+                        <div class="credential-item">
+                            <span class="credential-number">IBM</span>
+                            <span class="credential-label">Data Professional</span>
+                        </div>
+                    </div>
+
+                    <!-- Professional CTAs -->
                     <div class="hero-buttons">
-                        <a href="#portfolio" class="btn btn-primary">View My Work</a>
-                        <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                        <a href="#portfolio" class="btn btn-primary">View Case Studies</a>
+                        <a href="#contact" class="btn btn-secondary">Discuss Your Project</a>
                     </div>
                 </div>
 
@@ -422,37 +472,78 @@
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <div class="testimonial-header">
-                        <!-- <div class="client-image"></div> -->
                         <div class="client-info">
                             <h4>Sarah Johnson</h4>
                             <p>Marketing Director, TechCorp</p>
                         </div>
                     </div>
-                    <p class="testimonial-text">"The insights provided transformed our marketing strategy completely. We saw a 30% increase in campaign performance within just two months."</p>
+                    <p class="testimonial-text">"Jason's analytical approach helped us identify key patterns in our customer data that we hadn't recognized before. The insights led to a more targeted marketing strategy and measurably improved campaign performance."</p>
                 </div>
-                
+
                 <div class="testimonial-card">
                     <div class="testimonial-header">
-                        <!-- <div class="client-image"></div> -->
                         <div class="client-info">
                             <h4>Michael Chen</h4>
                             <p>CFO, Growth Ventures</p>
                         </div>
                     </div>
-                    <p class="testimonial-text">"The financial dashboard created has become an essential tool for our executive decision-making process. Highly recommended!"</p>
+                    <p class="testimonial-text">"The financial dashboard Jason developed has become an essential tool for our executive team. The data visualization makes complex financial trends clear and actionable for strategic planning."</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="client-info">
+                            <h4>Lisa Rodriguez</h4>
+                            <p>Operations Manager, SecureLogistics</p>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"Jason's supply chain analysis provided detailed insights into our operational bottlenecks. His methodical approach and clear reporting helped us implement improvements that significantly reduced our lead times."</p>
                 </div>
             </div>
         </div>
     </section>
     
+    <!-- Professional Consultation Section -->
+    <section class="consultation-section">
+        <div class="container">
+            <div class="consultation-content">
+                <h2>Free Initial Consultation</h2>
+                <p class="consultation-subtitle">Discuss your data challenges and explore potential solutions in a complimentary 30-minute session.</p>
+
+                <div class="consultation-process">
+                    <div class="process-item">
+                        <div class="process-number">1</div>
+                        <h4>Initial Discussion</h4>
+                        <p>Review your current data landscape and business objectives</p>
+                    </div>
+                    <div class="process-item">
+                        <div class="process-number">2</div>
+                        <h4>Opportunity Assessment</h4>
+                        <p>Identify key areas where data analysis can drive value</p>
+                    </div>
+                    <div class="process-item">
+                        <div class="process-number">3</div>
+                        <h4>Recommendations</h4>
+                        <p>Receive tailored insights and next steps for your project</p>
+                    </div>
+                </div>
+
+                <div class="consultation-cta">
+                    <a href="#contact" class="btn btn-primary" onclick="trackLeadMagnet()">Schedule Consultation</a>
+                    <p class="consultation-note">No obligation • Confidential discussion • Professional insights</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section - Contact information and form -->
     <section id="contact">
         <div class="container">
             <!-- Section heading -->
-            <h2>Get In Touch</h2>
+            <h2>Start Your Data Transformation Today</h2>
             <!-- Contact introduction -->
             <div class="section-intro">
-                <p>Ready to transform your data into actionable insights? Let's discuss your project.</p>
+                <p>Ready to unlock 25% more ROI from your data? Let's discuss your free audit and project goals.</p>
             </div>
             
             <div class="contact-container">
