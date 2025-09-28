@@ -166,6 +166,22 @@ While this is a personal portfolio, suggestions and feedback are welcome:
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+### What this means:
+- ✅ **Commercial use** - You can use this code for commercial projects
+- ✅ **Modification** - You can modify and adapt the code
+- ✅ **Distribution** - You can distribute copies of the code
+- ✅ **Private use** - You can use the code privately
+- ❗ **License and copyright notice** - Must include the original license and copyright notice
+
+### License Summary:
+```
+MIT License
+Copyright (c) 2025 Jason Nguyen
+Permission is hereby granted to use, copy, modify, and distribute this software.
+```
+
+For the full license text, see [LICENSE](LICENSE).
+
 ## 📞 Contact
 
 **Jason Nguyen**

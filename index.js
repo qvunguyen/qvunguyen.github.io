@@ -1,3 +1,10 @@
+/*!
+ * JN Data Analytics Portfolio Website
+ * Copyright (c) 2025 Jason Nguyen
+ * Licensed under the MIT License
+ * https://github.com/qvunguyen/qvunguyen.github.io
+ */
+
 // Wait for the DOM to fully load before executing the script
 document.addEventListener('DOMContentLoaded', function() {
     // Get all sections on the page for scroll tracking
